@@ -1,1 +1,11 @@
-# EPI_KnowledgeGraph_Deez
+# EPI Knowledge-Graph (Team:Deez)
+
+## Goal
+Knowlegegraph in Python
+ 
+## Dependencies
+- numpy, Python Math
+- A
+- B
+
+## Team
