@@ -5,7 +5,12 @@ Knowlegegraph in Python
  
 ## Dependencies
 - numpy, Python Math
-- A
-- B
+- pygame, Python Wrapper for SDL (Simple DirectMedia Layer) 
+- PyQt5, Python Qt UI Elements
 
 ## Team
+|Martikel Nummer|Name|
+|:-:|:-:|
+|xxx|Lukas Momberg|
+|xxx|Pas|
+|xxx|Jona|
