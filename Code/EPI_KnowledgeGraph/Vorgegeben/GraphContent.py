@@ -14,15 +14,153 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
+import string
 
 from GraphModel.Graph import Graph
 from GraphModel.Node import Node
 
 
 class GraphContent:
+    nodeList = []  # List of all Nodes
 
     def __init__(self, graph: Graph):
-        self.create_demo_nodes(graph)
+        self.NodeGraphCreateFromTeamDeez(graph)
+
+    def NodeGraphCreateProgrammingTree(self, parrant : Node):
+        node = Node("No", "Programming")
+        self.nodeList.append(node)
+        node.connect(parrant)
+
+        nodeDataFormat = self.NodeGraphCreateSubTree("Data Formats", "", node)
+        nodeBinary = self.NodeGraphCreateSubTree("Binary", "", nodeDataFormat)
+        self.NodeGraphCreateSubTree("AAC", "", nodeBinary)
+        self.NodeGraphCreateSubTree("AVI", "", nodeBinary)
+        self.NodeGraphCreateSubTree("Bitmap", "", nodeBinary)
+        self.NodeGraphCreateSubTree("FLAC", "", nodeBinary)
+        self.NodeGraphCreateSubTree("FBX", "", nodeBinary)
+        self.NodeGraphCreateSubTree("GIF", "", nodeBinary)
+        self.NodeGraphCreateSubTree("MIDI", "", nodeBinary)
+        self.NodeGraphCreateSubTree("MP3", "", nodeBinary)
+        self.NodeGraphCreateSubTree("MTL", "", nodeBinary)
+        self.NodeGraphCreateSubTree("OBJ", "", nodeBinary)
+        self.NodeGraphCreateSubTree("OGG", "", nodeBinary)
+        self.NodeGraphCreateSubTree("PDF", "", nodeBinary)
+        nodePNG = self.NodeGraphCreateSubTree("PNG", "", nodeBinary)
+        self.NodeGraphCreateSubTree("JPG", "", nodeBinary)
+        self.NodeGraphCreateSubTree("TGA", "", nodeBinary)
+        self.NodeGraphCreateSubTree("STL", "", nodeBinary)
+        self.NodeGraphCreateSubTree("SVG", "", nodeBinary)
+        self.NodeGraphCreateSubTree("TIFF", "", nodeBinary)
+        self.NodeGraphCreateSubTree("TTF", "", nodeBinary)
+        self.NodeGraphCreateSubTree("Wave", "", nodeBinary)
+
+        nodeText = self.NodeGraphCreateSubTree("Text", "", nodeDataFormat)
+        self.NodeGraphCreateSubTree("JSON", "", nodeText)
+        self.NodeGraphCreateSubTree("YAML", "", nodeText)
+        self.NodeGraphCreateSubTree("XML", "", nodeText)
+        self.NodeGraphCreateSubTree("INI", "", nodeText)
+
+        nodeLanguage = self.NodeGraphCreateSubTree("Languages", "", node)
+        nodeMachineLanguage = self.NodeGraphCreateSubTree("Machine Language", "", nodeLanguage)
+        self.NodeGraphCreateSubTree("x86", "", nodeMachineLanguage)
+        self.NodeGraphCreateSubTree("ARM", "", nodeMachineLanguage)
+        self.NodeGraphCreateSubTree("MIPS", "", nodeMachineLanguage)
+
+        nodeDataOriented = self.NodeGraphCreateSubTree("Data Oriented", "", nodeLanguage)
+        self.NodeGraphCreateSubTree("C", "", nodeDataOriented)
+        nodeCPP = self.NodeGraphCreateSubTree("C++", "", nodeDataOriented)
+
+        nodeObjectOriented = self.NodeGraphCreateSubTree("Object Oriented", "", nodeLanguage)
+        self.NodeGraphCreateSubTree("Java", "", nodeObjectOriented)
+        self.NodeGraphCreateSubTree("C#", "", nodeObjectOriented)
+        self.NodeGraphCreateSubTree("VB.Net", "", nodeObjectOriented)
+
+        nodeCPP.connect(nodeObjectOriented)
+
+        nodeFunctional = self.NodeGraphCreateSubTree("Functional", "", nodeLanguage)
+        self.NodeGraphCreateSubTree("Haskell", "", nodeFunctional)
+
+        nodeScript = self.NodeGraphCreateSubTree("Script", "", nodeLanguage)
+        self.NodeGraphCreateSubTree("Bash", "", nodeScript)
+        self.NodeGraphCreateSubTree("PowerShell", "", nodeScript)
+        self.NodeGraphCreateSubTree("CMD", "", nodeScript)
+        self.NodeGraphCreateSubTree("VBS", "", nodeScript)
+
+        nodeRelational = self.NodeGraphCreateSubTree("Relational", "", nodeLanguage)
+        self.NodeGraphCreateSubTree("SQL", "", nodeRelational)
+        self.NodeGraphCreateSubTree("Prolog", "", nodeRelational)
+
+        nodeHardware = self.NodeGraphCreateSubTree("Hardware", "", node)
+        nodeMemory = self.NodeGraphCreateSubTree("Memory", "", nodeHardware)
+        self.NodeGraphCreateSubTree("Stack", "", nodeMemory)
+        self.NodeGraphCreateSubTree("Heap", "", nodeMemory)
+        self.NodeGraphCreateSubTree("Mapping", "", nodeMemory)
+
+        nodeAlgoritm = self.NodeGraphCreateSubTree("Algorithms", "", node)
+        nodeLZ77 = self.NodeGraphCreateSubTree("LZ77", "", nodeAlgoritm)
+        nodeZLIB = self.NodeGraphCreateSubTree("ZLIB", "", nodeAlgoritm)
+        nodeADLER = self.NodeGraphCreateSubTree("ADLER", "", nodeAlgoritm)
+        nodeCRC = self.NodeGraphCreateSubTree("CRC", "", nodeAlgoritm)
+        nodeADAM7 = self.NodeGraphCreateSubTree("ADAM7", "", nodeAlgoritm)
+        nodeDELFATE = self.NodeGraphCreateSubTree("DEFLATE", "", nodeAlgoritm)
+        nodeHuffman = self.NodeGraphCreateSubTree("Huffman", "", nodeAlgoritm)
+
+        nodePNG.connect(nodeZLIB)
+        nodePNG.connect(nodeADAM7)
+        nodePNG.connect(nodeCRC)
+        nodeZLIB.connect(nodeDELFATE)
+        nodeZLIB.connect(nodeADLER)
+        nodeDELFATE.connect(nodeHuffman)
+        nodeDELFATE.connect(nodeLZ77)
+
+        nodePattern = self.NodeGraphCreateSubTree("Patterns", "", node)
+        self.NodeGraphCreateSubTree("State Machine", "", nodePattern)
+        self.NodeGraphCreateSubTree("Observer", "", nodePattern)
+        self.NodeGraphCreateSubTree("Owner", "", nodePattern)
+
+
+        nodeProtocol = self.NodeGraphCreateSubTree("Protocol", "", node)
+        self.NodeGraphCreateSubTree("LDAP", "", nodeProtocol)
+        self.NodeGraphCreateSubTree("FTP", "", nodeProtocol)
+
+
+    def NodeGraphCreateAAAAAAATree(self, parrant: Node):
+        node = Node("No", "PPP")
+        self.nodeList.append(node)
+        node.connect(parrant)
+    def NodeGraphCreateBBBBBBBBTree(self, parrant: Node):
+        node = Node("No", "JJJ")
+        self.nodeList.append(node)
+        node.connect(parrant)
+
+    def NodeGraphCreateSubTree(self, name: string, description: string, parent: Node):
+        node = Node(description, name)
+        self.nodeList.append(node)
+        node.connect(parent)
+
+        return node
+
+    def NodeGraphCreateFromTeamDeez(self, graph):
+        ###################################################
+        # Creating nodes
+        ###################################################
+        nodeMain = Node("No", "Main")
+        #nodeMain.connect(paper_source_example_node)
+        self.nodeList.append(nodeMain)
+
+        self.NodeGraphCreateProgrammingTree(nodeMain)
+        self.NodeGraphCreateAAAAAAATree(nodeMain)
+        self.NodeGraphCreateBBBBBBBBTree(nodeMain)
+        ###################################################
+
+        ###################################################
+        # Registering nodes
+        ###################################################
+        for node in self.nodeList:
+            graph.add_new_node_to_graph(node)
+        ###################################################
+
+
 
     def create_demo_nodes(self, graph):
         """

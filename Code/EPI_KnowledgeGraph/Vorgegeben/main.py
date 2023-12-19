@@ -15,22 +15,20 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 """
 
-import pygame.freetype
 import sys
 
-from GraphContent import GraphContent
-from Structured_Knowledge_Graph_Example.MyGraphExample import MyGraphExample
-from View.ApplicationLoopManager import ApplicationLoopManager
+import pygame.freetype
+
 import ComponentAssembly.ComponentAssembler
+from GraphContent import GraphContent
 from GraphModel.Graph import Graph
+from View.ApplicationLoopManager import ApplicationLoopManager
 
 if __name__ == '__main__':
     # Graph
     graph = Graph()
-    graph.team_name = "Die mutigen Mungos"  # TODO: Geben Sie Ihrem Team einen Namen!
-    graph_content = GraphContent(graph)  # TODO: Hier können Sie den Inhalt und Verbindungen ihrer Knoten anlegen.
-
-    # beautiful_code_graph = MyGraphExample(graph)
+    graph.team_name = "Deez"
+    graph_content = GraphContent(graph)
 
     # Application
     component_assembler = ComponentAssembly.ComponentAssembler.ComponentAssembler(graph, False)
