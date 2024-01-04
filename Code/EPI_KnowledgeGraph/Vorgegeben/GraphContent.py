@@ -25,17 +25,53 @@ class GraphContent:
 
     def __init__(self, graph: Graph):
         self.NodeGraphCreateFromTeamDeez(graph)
+        #self.create_demo_nodes(graph)
 
     def NodeGraphCreateProgrammingTree(self, parrant : Node):
         node = Node("No", "Programming")
         self.nodeList.append(node)
         node.connect(parrant)
 
-        nodeDataFormat = self.NodeGraphCreateSubTree("Data Formats", "", node)
-        nodeBinary = self.NodeGraphCreateSubTree("Binary", "", nodeDataFormat)
-        self.NodeGraphCreateSubTree("AAC", "", nodeBinary)
-        self.NodeGraphCreateSubTree("AVI", "", nodeBinary)
-        self.NodeGraphCreateSubTree("Bitmap", "", nodeBinary)
+        nodeDataFormat = self.NodeGraphCreateSubTree(
+            "Dateiformat",
+            "Dateien werden in unterschiedlich Formaten gespeichert, je nach dem wie man diese nutzen möchte."
+            "Hier sind entweder **Text** vasiert oder auch **Binär**. Beide mit ihren vor und nachteilen.\n"
+            "Zusätzlich gibt es auch gemischte formate, "
+            "da das lesen und schreiben dieser Formate aber ehr unkomfortabel ist, wird die nutzung ehr vermieden",
+            node)
+        nodeBinary = self.NodeGraphCreateSubTree(
+            "Binary",
+            "Das Binär format ist effizient in der speicherung, "
+            "allerding den Nachteil, das ein Mensch diese nicht direkt ändern kann."
+            "Man benötigt ein Programm um die Datei zu verändern. "
+            "Sollte man diese Fehlerhaft abändern, kann es dazu kommen, das die Datei nicht mehr lese fähig wird.",
+            nodeDataFormat)
+        self.NodeGraphCreateSubTree(
+            "AAC",
+            "# Advanced Audio Coding\n"
+            "## [ISO/IEC 14496-3:2019]\n"
+            "Soundformat, nachfolger von MP3",
+            nodeBinary)
+
+        self.NodeGraphCreateSubTree(
+            "AVI",
+            "# Audio Video Interleave\n"
+            "## [RFC 2361]\n"
+            "Video format, unkompremiert.\n"
+            "Da dieses Format keine kompression besitzt, werden Dateien mit mehr Inhalt in größe explodieren"
+            "Due "
+                ,
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "Bitmap",
+            "# [RFC 797]\n"
+            "Bild format, unkompremiert.\n"
+            "## Vorteile\n"
+            "- Einfach zu lesen und auch zu schreiben\n"
+            "## Nachteile\n"
+            "- Durch fehlende kompresssion werden Bilder mit viel Detail enorm groß.\n"
+            "- Transparenz ist zwar möglich aber oft nicht unterstützt.",
+            nodeBinary)
         self.NodeGraphCreateSubTree("FLAC", "", nodeBinary)
         self.NodeGraphCreateSubTree("FBX", "", nodeBinary)
         self.NodeGraphCreateSubTree("GIF", "", nodeBinary)
@@ -98,12 +134,35 @@ class GraphContent:
 
         nodeAlgoritm = self.NodeGraphCreateSubTree("Algorithms", "", node)
         nodeLZ77 = self.NodeGraphCreateSubTree("LZ77", "", nodeAlgoritm)
-        nodeZLIB = self.NodeGraphCreateSubTree("ZLIB", "", nodeAlgoritm)
-        nodeADLER = self.NodeGraphCreateSubTree("ADLER", "", nodeAlgoritm)
-        nodeCRC = self.NodeGraphCreateSubTree("CRC", "", nodeAlgoritm)
-        nodeADAM7 = self.NodeGraphCreateSubTree("ADAM7", "", nodeAlgoritm)
-        nodeDELFATE = self.NodeGraphCreateSubTree("DEFLATE", "", nodeAlgoritm)
-        nodeHuffman = self.NodeGraphCreateSubTree("Huffman", "", nodeAlgoritm)
+        nodeZLIB = self.NodeGraphCreateSubTree(
+            "ZLIB",
+            "ZLIB ist eine Struktur die Kompessions-Algorithmen unterstützt.\n"
+            "Zurzeit ist nur DEFLATE definiert.\n",
+            nodeAlgoritm)
+        nodeADLER = self.NodeGraphCreateSubTree(
+            "ADLER",
+            "Ein Überprüfsummen Algorithmus der einen block Daten überpüfen kann",
+            nodeAlgoritm)
+        nodeCRC = self.NodeGraphCreateSubTree(
+            "CRC",
+            "",
+            nodeAlgoritm)
+        nodeADAM7 = self.NodeGraphCreateSubTree(
+            "ADAM7",
+            "Ein Interlacing Algorithmus der durch "
+            "[Interlacing](https://en.wikipedia.org/wiki/Interlacing_(bitmaps))"
+            "[Wikipedia](https://en.wikipedia.org/wiki/Adam7_algorithm)",
+            nodeAlgoritm)
+        nodeDELFATE = self.NodeGraphCreateSubTree(
+            "DEFLATE",
+            "Ein Kompessions Algorithmus der von ZLIB genutzt wird.\n"
+            "Dieses format nutzt zusätzlich den Huffman Algorithmus\n"
+            "Dadurch ist dieses Format zwar von sich aus limitiert auf byte Ebene aber der Inhalt ist auf bit Ebene.",
+            nodeAlgoritm)
+        nodeHuffman = self.NodeGraphCreateSubTree(
+            "Huffman",
+            "Ein Kompessions Algorithmus der auf bit Ebene funktioniert.",
+            nodeAlgoritm)
 
         nodePNG.connect(nodeZLIB)
         nodePNG.connect(nodeADAM7)
@@ -144,7 +203,7 @@ class GraphContent:
         ###################################################
         # Creating nodes
         ###################################################
-        nodeMain = Node("No", "Main")
+        nodeMain = Node("Informationen rund ums Studium", "Main")
         #nodeMain.connect(paper_source_example_node)
         self.nodeList.append(nodeMain)
 
@@ -159,8 +218,6 @@ class GraphContent:
         for node in self.nodeList:
             graph.add_new_node_to_graph(node)
         ###################################################
-
-
 
     def create_demo_nodes(self, graph):
         """
