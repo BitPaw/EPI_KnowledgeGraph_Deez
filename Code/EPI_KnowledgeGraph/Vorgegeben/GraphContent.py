@@ -23,6 +23,16 @@ from GraphModel.Node import Node
 class GraphContent:
     nodeList = []  # List of all Nodes
 
+    # Requirement
+    # 20 Nodes per Member
+    # 30.000 Words per Member
+    # ~~=> 1500 Words per node
+
+    # Demands to group
+    # 3 x 20 nodes     = 60 nodes
+    # 3 x 30.000 words = 90.000 words
+
+
     def __init__(self, graph: Graph):
         self.NodeGraphCreateFromTeamDeez(graph)
         #self.create_demo_nodes(graph)
@@ -72,23 +82,116 @@ class GraphContent:
             "- Durch fehlende kompresssion werden Bilder mit viel Detail enorm groß.\n"
             "- Transparenz ist zwar möglich aber oft nicht unterstützt.",
             nodeBinary)
-        self.NodeGraphCreateSubTree("FLAC", "", nodeBinary)
-        self.NodeGraphCreateSubTree("FBX", "", nodeBinary)
-        self.NodeGraphCreateSubTree("GIF", "", nodeBinary)
-        self.NodeGraphCreateSubTree("MIDI", "", nodeBinary)
-        self.NodeGraphCreateSubTree("MP3", "", nodeBinary)
-        self.NodeGraphCreateSubTree("MTL", "", nodeBinary)
-        self.NodeGraphCreateSubTree("OBJ", "", nodeBinary)
-        self.NodeGraphCreateSubTree("OGG", "", nodeBinary)
-        self.NodeGraphCreateSubTree("PDF", "", nodeBinary)
-        nodePNG = self.NodeGraphCreateSubTree("PNG", "", nodeBinary)
-        self.NodeGraphCreateSubTree("JPG", "", nodeBinary)
-        self.NodeGraphCreateSubTree("TGA", "", nodeBinary)
-        self.NodeGraphCreateSubTree("STL", "", nodeBinary)
-        self.NodeGraphCreateSubTree("SVG", "", nodeBinary)
-        self.NodeGraphCreateSubTree("TIFF", "", nodeBinary)
-        self.NodeGraphCreateSubTree("TTF", "", nodeBinary)
-        self.NodeGraphCreateSubTree("Wave", "", nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "FLAC",
+            "# Free Lossless Audio Codec\n"
+            "## Info\n"
+            "Öffenticher standard\n"
+            "### Abhänigkeiten\n"
+            "- CRC\n"
+            "### Vorteile\n"
+            " - Erhöhte Kompression als DELFATE durch bessere Nutzung der Eigenschaften von Audio Dateien."
+            "### Nachteile\n"
+            "- \-",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "FBX",
+            "# Kaydara Film Box\n"
+           "### Abhänigkeiten\n"
+            "- ZLIB"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "- Schwierig zu parsen\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "GIF",
+            "# Graphics Interchange Format\n"
+            "## Dependency\n"
+            "## Advantage\n"
+            "## Drawback\n"
+            "## Links\n"
+            "- Wikipedia : https://en.wikipedia.org/wiki/GIF",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "MIDI",
+            "# Musical Instrument Digital Interface\n"
+            "Ein sehr bekanntes Musik format aus den 1980s.\n"
+            "In diesem werden Instrumente und deren Noten abgespeichert."
+            "Wie diese sich aber genau anhören ist der Soundkarte überlassen"
+            "Da nur die Noten gespeichert werden, ist dieses Format sehr speicher effizient."
+           "## Links\n"
+            "- Wikipedia : https://en.wikipedia.org/wiki/MIDI\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "MP3",
+            "# Moving Picture Experts Group Layer III"
+            "## Dependency\n"
+            "- ID3"
+            "## Advantage\n"
+            "## Drawback\n"
+            "## Links\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "MTL",
+            "# Wavefront Material Template Library\n"
+            "## Dependency\n"
+            "- (None)\n"
+            "## Advantage\n"
+            "## Drawback\n"
+            "## Links\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "OBJ",
+            "# Wavefront\n"
+            "## Dependency\n"
+            "- MTL\n"
+            "## Advantage\n"
+            "## Drawback\n"
+            "## Links\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "OGG",
+            "",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "PDF",
+            "# Portable Document Format\n"
+            "# [ISO 32000]\n",
+            nodeBinary)
+        nodePNG = self.NodeGraphCreateSubTree(
+            "PNG",
+            "# Portable Network Graphics\n"
+            "# [RFC 2083]\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "JPG",
+            "# Joint Photographic Experts Group\n"
+            "# [ISO/IEC 10918]\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "TGA",
+            "Truevision Advanced Raster Graphics Array",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "STL",
+            "# Standard Triangle Language\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "SVG",
+            "# Scalable Vector Graphics\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "TIFF",
+            "# Tagged Image File Format\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "TTF",
+            "# True Type Font\n",
+            nodeBinary)
+        self.NodeGraphCreateSubTree(
+            "WAV",
+            "# Wave",
+            nodeBinary)
 
         nodeText = self.NodeGraphCreateSubTree("Text", "", nodeDataFormat)
         self.NodeGraphCreateSubTree("JSON", "", nodeText)
@@ -145,7 +248,7 @@ class GraphContent:
             nodeAlgoritm)
         nodeCRC = self.NodeGraphCreateSubTree(
             "CRC",
-            "",
+            "# Cyclic redundancy check",
             nodeAlgoritm)
         nodeADAM7 = self.NodeGraphCreateSubTree(
             "ADAM7",
