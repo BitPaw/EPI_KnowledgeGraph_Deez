@@ -32,7 +32,6 @@ class GraphContent:
     # 3 x 20 nodes     = 60 nodes
     # 3 x 30.000 words = 90.000 words
 
-
     def __init__(self, graph: Graph):
         self.NodeGraphCreateFromTeamDeez(graph)
         #self.create_demo_nodes(graph)
@@ -52,9 +51,11 @@ class GraphContent:
         nodeBinary = self.NodeGraphCreateSubTree(
             "Binary",
             "Das Binär format ist effizient in der speicherung, "
-            "allerding den Nachteil, das ein Mensch diese nicht direkt ändern kann."
-            "Man benötigt ein Programm um die Datei zu verändern. "
-            "Sollte man diese Fehlerhaft abändern, kann es dazu kommen, das die Datei nicht mehr lese fähig wird.",
+             "## Vorteile\n"
+            "- Einfacher zu lesen und zu schreiben als Text basierte Dateien\n"
+            "## Nachteile\n"
+            "- Ist nicht direkt änderbar, man benötigt ein Programm um die Datei zu verändern.\n"
+            "- Sollte man diese Fehlerhaft abändern, kann es dazu kommen, das die Datei nicht mehr lese fähig wird.",
             nodeDataFormat)
         self.NodeGraphCreateSubTree(
             "AAC",
@@ -69,18 +70,19 @@ class GraphContent:
             "## [RFC 2361]\n"
             "Video format, unkompremiert.\n"
             "Da dieses Format keine kompression besitzt, werden Dateien mit mehr Inhalt in größe explodieren"
-            "Due "
-                ,
+            "Due ",
             nodeBinary)
         self.NodeGraphCreateSubTree(
-            "Bitmap",
+            "BMP",
+            "# BitMap\n"
             "# [RFC 797]\n"
             "Bild format, unkompremiert.\n"
             "## Vorteile\n"
             "- Einfach zu lesen und auch zu schreiben\n"
             "## Nachteile\n"
             "- Durch fehlende kompresssion werden Bilder mit viel Detail enorm groß.\n"
-            "- Transparenz ist zwar möglich aber oft nicht unterstützt.",
+            "- Transparenz ist zwar möglich aber oft nicht unterstützt."
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "FLAC",
@@ -92,23 +94,26 @@ class GraphContent:
             "### Vorteile\n"
             " - Erhöhte Kompression als DELFATE durch bessere Nutzung der Eigenschaften von Audio Dateien."
             "### Nachteile\n"
-            "- \-",
+            "- (Keine)"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "FBX",
             "# Kaydara Film Box\n"
-           "### Abhänigkeiten\n"
+            "### Abhänigkeiten\n"
             "- ZLIB"
             "### Vorteile\n"
             "### Nachteile\n"
-            "- Schwierig zu parsen\n",
+            "- Schwierig zu lesen und schreiben\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "GIF",
             "# Graphics Interchange Format\n"
-            "## Dependency\n"
-            "## Advantage\n"
-            "## Drawback\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"         
+            "### Nachteile\n"
             "## Links\n"
             "- Wikipedia : https://en.wikipedia.org/wiki/GIF",
             nodeBinary)
@@ -124,116 +129,346 @@ class GraphContent:
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "MP3",
-            "# Moving Picture Experts Group Layer III"
-            "## Dependency\n"
-            "- ID3"
-            "## Advantage\n"
-            "## Drawback\n"
+            "# Moving Picture Experts Group Layer III\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- ID3\n"
+            "### Vorteile\n"         
+            "### Nachteile\n"
             "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "MTL",
             "# Wavefront Material Template Library\n"
-            "## Dependency\n"
-            "- (None)\n"
-            "## Advantage\n"
-            "## Drawback\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- (Keine)\n"
+            "### Vorteile\n"         
+            "### Nachteile\n"
             "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "OBJ",
             "# Wavefront\n"
-            "## Dependency\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
             "- MTL\n"
-            "## Advantage\n"
-            "## Drawback\n"
+            "### Vorteile\n"         
+            "### Nachteile\n"
             "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "OGG",
-            "",
+            "# xxxxxxxxxxx\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"         
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "PDF",
             "# Portable Document Format\n"
-            "# [ISO 32000]\n",
+            "# [ISO 32000]\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         nodePNG = self.NodeGraphCreateSubTree(
             "PNG",
             "# Portable Network Graphics\n"
-            "# [RFC 2083]\n",
+            "# [RFC 2083]\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "JPG",
             "# Joint Photographic Experts Group\n"
-            "# [ISO/IEC 10918]\n",
+            "# [ISO/IEC 10918]\n"
+            "# xxxxxxxxxxx\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "TGA",
-            "Truevision Advanced Raster Graphics Array",
+            "Truevision Advanced Raster Graphics Array\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "STL",
-            "# Standard Triangle Language\n",
+            "# Standard Triangle Language\n"
+            "# xxxxxxxxxxx\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "SVG",
-            "# Scalable Vector Graphics\n",
+            "# Scalable Vector Graphics\n"
+            "# xxxxxxxxxxx\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "TIFF",
-            "# Tagged Image File Format\n",
+            "# Tagged Image File Format\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "TTF",
-            "# True Type Font\n",
+            "# True Type Font\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+             "- (Keine)\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "WAV",
-            "# Wave",
+            "# Wave\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- (Keine)\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
             nodeBinary)
 
-        nodeText = self.NodeGraphCreateSubTree("Text", "", nodeDataFormat)
-        self.NodeGraphCreateSubTree("JSON", "", nodeText)
-        self.NodeGraphCreateSubTree("YAML", "", nodeText)
-        self.NodeGraphCreateSubTree("XML", "", nodeText)
-        self.NodeGraphCreateSubTree("INI", "", nodeText)
+        nodeText = self.NodeGraphCreateSubTree(
+            "Text",
+            "# Text basierte Dateien\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- Text Editor\n"
+            "### Vorteile\n"
+            "- Menschlich einfaches lesen und schreiben\n"
+            "### Nachteile\n"
+            "- Benötig ein Komplexes Kompilier system um die Datei in "
+            "verarbeitbare daten zu konvertieren\n"
+            "## Links\n",
+            nodeDataFormat)
+        self.NodeGraphCreateSubTree(
+            "JSON",
+            "# JavaScript Object Notation\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- (Keine)\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
+            nodeText)
+        self.NodeGraphCreateSubTree(
+            "YAML",
+            "# Wave\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- (Keine)\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
+            nodeText)
+        self.NodeGraphCreateSubTree(
+            "XML",
+            "# Wave\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- (Keine)\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
+            nodeText)
+        self.NodeGraphCreateSubTree(
+            "INI",
+            "# Wave\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- (Keine)\n"
+            "### Vorteile\n"
+            "### Nachteile\n"
+            "## Links\n",
+            nodeText)
 
-        nodeLanguage = self.NodeGraphCreateSubTree("Languages", "", node)
-        nodeMachineLanguage = self.NodeGraphCreateSubTree("Machine Language", "", nodeLanguage)
-        self.NodeGraphCreateSubTree("x86", "", nodeMachineLanguage)
-        self.NodeGraphCreateSubTree("ARM", "", nodeMachineLanguage)
-        self.NodeGraphCreateSubTree("MIPS", "", nodeMachineLanguage)
+        nodeLanguage = self.NodeGraphCreateSubTree(
+            "Languages",
+            "", node)
+        nodeMachineLanguage = self.NodeGraphCreateSubTree(
+            "Machine Language",
+            "",
+            nodeLanguage)
+        self.NodeGraphCreateSubTree(
+            "x86",
+            "",
+            nodeMachineLanguage)
+        self.NodeGraphCreateSubTree(
+            "ARM",
+            "",
+            nodeMachineLanguage)
+        self.NodeGraphCreateSubTree(
+            "MIPS",
+            "",
+            nodeMachineLanguage)
 
-        nodeDataOriented = self.NodeGraphCreateSubTree("Data Oriented", "", nodeLanguage)
-        self.NodeGraphCreateSubTree("C", "", nodeDataOriented)
-        nodeCPP = self.NodeGraphCreateSubTree("C++", "", nodeDataOriented)
+        nodeDataOriented = self.NodeGraphCreateSubTree(
+            "Data Oriented",
+            "", nodeLanguage)
+        self.NodeGraphCreateSubTree(
+            "C",
+            "",
+            nodeDataOriented)
+        nodeCPP = self.NodeGraphCreateSubTree(
+            "C++",
+            "",
+            nodeDataOriented)
 
-        nodeObjectOriented = self.NodeGraphCreateSubTree("Object Oriented", "", nodeLanguage)
-        self.NodeGraphCreateSubTree("Java", "", nodeObjectOriented)
-        self.NodeGraphCreateSubTree("C#", "", nodeObjectOriented)
-        self.NodeGraphCreateSubTree("VB.Net", "", nodeObjectOriented)
+        nodeObjectOriented = self.NodeGraphCreateSubTree(
+            "Object Oriented",
+            "",
+            nodeLanguage)
+        self.NodeGraphCreateSubTree(
+            "Java",
+            "",
+            nodeObjectOriented)
+        self.NodeGraphCreateSubTree(
+            "C#",
+            "",
+            nodeObjectOriented)
+        self.NodeGraphCreateSubTree(
+            "VB.Net",
+            "",
+            nodeObjectOriented)
 
         nodeCPP.connect(nodeObjectOriented)
 
-        nodeFunctional = self.NodeGraphCreateSubTree("Functional", "", nodeLanguage)
-        self.NodeGraphCreateSubTree("Haskell", "", nodeFunctional)
+        nodeFunctional = self.NodeGraphCreateSubTree(
+            "Functional",
+            "# Funktionale Sprachen",
+            nodeLanguage)
+        self.NodeGraphCreateSubTree(
+            "Haskell",
+            "",
+            nodeFunctional)
 
-        nodeScript = self.NodeGraphCreateSubTree("Script", "", nodeLanguage)
-        self.NodeGraphCreateSubTree("Bash", "", nodeScript)
-        self.NodeGraphCreateSubTree("PowerShell", "", nodeScript)
-        self.NodeGraphCreateSubTree("CMD", "", nodeScript)
-        self.NodeGraphCreateSubTree("VBS", "", nodeScript)
+        nodeScript = self.NodeGraphCreateSubTree(
+            "Script",
+            "# Skript Sprachen",
+            nodeLanguage)
+        self.NodeGraphCreateSubTree(
+            "Bash",
+            "",
+            nodeScript)
+        self.NodeGraphCreateSubTree(
+            "PowerShell",
+            "",
+            nodeScript)
+        self.NodeGraphCreateSubTree(
+            "CMD",
+            "# Windows Commandline\n"
+            "Die Windows Commandline ist, wie man sie auch schon seit DOS kennt, die bekannte Schwarze Konsole.",
+            nodeScript)
+        self.NodeGraphCreateSubTree(
+            "VBS",
+            "# Visual Basic Script\n"
+            "Dies ist eine Script Form von VisualBasic.NET. Dies wird meist in Excel als Makro funktionen genutzt",
+            nodeScript)
 
-        nodeRelational = self.NodeGraphCreateSubTree("Relational", "", nodeLanguage)
-        self.NodeGraphCreateSubTree("SQL", "", nodeRelational)
-        self.NodeGraphCreateSubTree("Prolog", "", nodeRelational)
+        nodeRelational = self.NodeGraphCreateSubTree(
+            "Relational",
+            "# Relationale Sprachen\n"
+            "Relationale Sprachen arbeiten, anders als bekannte iterative Sprachen, mit Mengen an Daten.\n"
+            "",
+            nodeLanguage)
+        self.NodeGraphCreateSubTree(
+            "SQL",
+            "# Structured query language\n"
+            "SQL ist die standardsprache wenn es um Datenbanken geht.\n"
+            "",
+            nodeRelational)
+        self.NodeGraphCreateSubTree(
+            "Prolog",
+            "",
+            nodeRelational)
 
-        nodeHardware = self.NodeGraphCreateSubTree("Hardware", "", node)
-        nodeMemory = self.NodeGraphCreateSubTree("Memory", "", nodeHardware)
-        self.NodeGraphCreateSubTree("Stack", "", nodeMemory)
-        self.NodeGraphCreateSubTree("Heap", "", nodeMemory)
-        self.NodeGraphCreateSubTree("Mapping", "", nodeMemory)
+       # nodeHardware = self.NodeGraphCreateSubTree("Hardware", "", node)
+        nodeMemory = self.NodeGraphCreateSubTree(
+            "Memory",
+            "# Speicherverwaltung\n"
+             "## Info\n"
+            "Die "
+            "### Abhänigkeiten\n"
+            "- BetriebSystem\n"
+            "### Vorteile\n"
+            "Durch das manuelle verwalten kann Code Qualität erhöht werden und dessen geschwindigkeit "
+            "stark verbessert werden.\n"
+            "### Nachteile\n"
+            "Manuelle Speicherverwaltung ist nicht unbedingt einfach, viele Programmierer behaupten auch, "
+            "dass dies eineer der schwersten Themen ist. Die Schwiereigkeit besteht im größeren nur "
+            "gegebenen speicher wieder frei zu geben. "
+            "## Links\n",
+            node)
+        self.NodeGraphCreateSubTree(
+            "Garbage Collector",
+            "# Der Speicherverwalter\n"
+            "In den meisten Programmiersprachen werden alle dynamischen elemente von "
+            "einem Speicher-Verwaltungssystem verarbeitet. Dadurch ist es nicht mehr "
+            "notwendig manuell Speicher an zu vordern und auch wieder frei zu geben\n\n"
+            "Als großer Nachteil kommt immer wieder die kosten von Speicher und "
+            "Geschwinigkeit zum Vordergrund."
+            "Hier ist genau der verwaltungsaspekt einer der größten probleme. "
+            "Nicht unbedingt die umsetzuing aber das verhalten der verwaltung der Elemente."
+            "Oftmals werden Probleme erst wahrgenommen und erkannt wenn es schon zu spät ist\n\n",
+            nodeMemory)
+        self.NodeGraphCreateSubTree(
+            "Stack",
+            "# Speicher Stapel\n"
+             "## Info\n"
+            "Der Stapel ist einer der ersten Speicher-Systeme die man kennen lernt, da diese "
+            "einer der einfachen sind. Dieser arbeitet mit dem First-In-Last-Out (FILO) Prinzip\n\n"
+            "### Abhänigkeiten\n"
+            "- BetriebSystem\n"
+            "### Vorteile\n"
+            "- Extrem Schnelles Hinzufügen und Entfernen von Daten\n"
+            "### Nachteile\n"
+            "- Daten die zuerst hinzugefügt werden leben immer länger als Elemente die auf diesem liegen\n"
+            "- Der Speicher ist begrenzt und zu große oder auch zu viele Elemente können einen Fehler erzeigen.",
+            nodeMemory)
+        self.NodeGraphCreateSubTree(
+            "Heap",
+            "# Speicher Haufen\n"
+            "Der Weg um dynamisch außerhalb des Stacks Speicher an zu fordern."
+            "Da der Speicher außerhalb liegt, wirkt der sich der Heap auch nicht auf den Stack aus."
+            "Jedoch ist es möglich, das durch das aufblähen des Heaps und des Stacks zugleich eine kollision entsteht",
+            nodeMemory)
+        self.NodeGraphCreateSubTree(
+            "Mapping",
+            "# Speicher Abbilden\n"
+            "Mapping ist anders zu den anderen Speicher Arten rellativ neu.\n"
+            "Ähnlich wie der Heap existiert diese Art Speicher nicht im Stack sondern in einem Seperaten Bereich\n\n"
+            "Dieser Bereich ermöglicht es einen gewissen Block fest in den Virtuellen Speicher Bereich ein zu arbeiten."
+            "### Abhänigkeiten\n"
+            "- Virtueller Speicher",
+            nodeMemory)
 
         nodeAlgoritm = self.NodeGraphCreateSubTree("Algorithms", "", node)
         nodeLZ77 = self.NodeGraphCreateSubTree("LZ77", "", nodeAlgoritm)
@@ -275,15 +510,125 @@ class GraphContent:
         nodeDELFATE.connect(nodeHuffman)
         nodeDELFATE.connect(nodeLZ77)
 
-        nodePattern = self.NodeGraphCreateSubTree("Patterns", "", node)
-        self.NodeGraphCreateSubTree("State Machine", "", nodePattern)
-        self.NodeGraphCreateSubTree("Observer", "", nodePattern)
-        self.NodeGraphCreateSubTree("Owner", "", nodePattern)
+        nodePattern = self.NodeGraphCreateSubTree(
+            "Entwurfsmuster",
+            "## Info\n"
+            "Auch Design-Patterns genannt, sind wiederkehrende Lösungen die als Vorlage dienen."
+            "IN der Programmierung werden Probleme oft auf eine gleiche Art gelößt, "
+            "hier lohnt es sich mit diesen Vorlagen schon bekannt zu sein um nicht "
+            "sehr viel Zeit und Mühe zu verbrauchen."      
+            "### Abhänigkeiten\n"
+            "- (Keine)\n"
+            "### Vorteile\n"
+            "- Code ist mehr Standartisiert mit weniger halben Mustern.\n"
+            "- Erleichterte Entwicklung durch Grundwissen\n"
+            "- Erprobte Muster können die Code Qualität erhöhen\n"
+            "### Nachteile\n"
+            "- Erzwingung dieser Muster kann sich stark negativ auf die Qualität des Codes auswirkien.\n"
+            "- Muster zu nutzen verändert den Code, acht ist zu geben das es nicht zu stark verzerrt.\n"
+            "- Falsche Anwenung der Muster kann ungeahnte Probleme mit sich ziehen.\n"
+            "## Links\n",
+            node)
+        self.NodeGraphCreateSubTree(
+            "State Machine",
+            "# Zustandsmachine"
+            "## Info\n"
+            "Die Zustandsmachine existiert immer in einem Fest definierten "
+            "Zustand und kann diesen nur in fest eingebauten Wegen ändern."
+            "Dieses Muster wird oft in kleinen Abgeschlossenen system verwendet."
+            "Als Beispiel kleine Automaten, für Getränke oder andere Produkte "
+            "aber auch kleine MicroChips oder auch kleine Elemente in Spielen."
+            "### Abhänigkeiten\n"
+            "- Ein Wert der den Momentanen Status hält\n"
+            "- Eine Liste von allen möglichen Zuständen\n"
+            "### Vorteile\n"
+            "- Exakte definition vom jetzigen Zustand\n"
+            "- Vehinderung von Illegalen Zuständen\n"
+            "### Nachteile\n"
+            "- Nur einzelne Zustände möglich\n"
+            "- Parraleles Arbeiten unmöglich.\n"
+            "## Links\n",
+            nodePattern)
+        self.NodeGraphCreateSubTree(
+            "Observer",
+            "# Observierungs Muster\n"
+            "## Info\n"
+            "### Abhänigkeiten\n"
+            "- Sender\n"
+            "- Empfänger\n"
+            "### Vorteile\n"
+            "- Schnelle direkte Event basierte Aktionen\n"
+            "### Nachteile\n"
+            "- Die Empfänger können den Aufruf aufhalten, wenn dieser syncron genutzt wird."
+            "## Links\n",
+            nodePattern)
+        self.NodeGraphCreateSubTree(
+            "Owner",
+            "## Besitzer Muster\n"
+            "## Info\n"
+            "Dieses Muster dient dazu, das nur der Besitzer einem gewissen Elements kontrolle hat dieses zu verändern\n"
+            "Durch diese stränge KOntrolle wird verhindert das drtitte veränderungen treffen können, "
+            "die dafür sorgen können das ein illegaler zustand entsteht."
+            "### Abhänigkeiten\n"
+            "- Besitzer\n"
+            "### Vorteile\n"
+            "- Schnelle direkte Event basierte Aktionen\n"
+            "### Nachteile\n"
+            "- Die Empfänger können den Aufruf aufhalten, wenn dieser syncron genutzt wird."
+            "## Links\n",
+            nodePattern)
 
-
-        nodeProtocol = self.NodeGraphCreateSubTree("Protocol", "", node)
-        self.NodeGraphCreateSubTree("LDAP", "", nodeProtocol)
-        self.NodeGraphCreateSubTree("FTP", "", nodeProtocol)
+        nodeProtocol = self.NodeGraphCreateSubTree(
+            "Protocol",
+            "Ein Protokoll dient zur Definition der Kommunikation zwischen Systemen."
+            "Diese sind essenziell, da ohne sie Kommunikation nicht nur probleme bereitet sondern gar fehlerlos unmöglich ist.\n\n"
+            "Um nun also dieses Problem zu lösen, wird lange an einem Protokoll entwickelt "
+            "und getestet um möglichst alles ab zu decken was man unter diesen Aspekten benötig."
+            "Zudem wird eine Dokumentation erstellt die alle Interaktionen und Fragen abdecken "
+            "muss um zukünfigte auftretende Fragen des Nutzers direkt eine Antwort zu bieten\n\n"
+            "# Limitierungen\n"
+            "Auftretende Probleme sind immer wieder, das bestimmte erwünste Aktionen nur umständlich"
+            " oder sogar gar nicht möglich sind. In vielen anderen Situationen gibt es auch Probleme, "
+            "dass gewisse Interaktionen nicht definiert und somit unerwünscht sind.\n\n"
+            "Um damit um zu gehen muss im gegebenen Fall vorab damit gerechnet werden und mögliche "
+            "Stellen zum einfügen von Erweiterungen gedacht werden.\n"
+            "Hier wird sehr oft auf die simple **Versions ID** genutzt. <Hier kann schnell unterschieden werden "
+            "welche kommunikations version genutzt wird. Entweder kann die version unterstützt werden aber auch abgelehnt werden.",
+            node)
+        self.NodeGraphCreateSubTree(
+            "LDAP",
+            "# Lightweight Directory Access Protocol\n"
+            "# [RFC 1823]\n"
+            "# [RFC 4515]\n"
+            "## Info\n"
+            "Ein Verzeichnis service der es auch extram hardwarearmen system ermöglicht größere Datenmängen zu verwalten"
+            "### Abhänigkeiten\n"
+            "- Mindestens 2 Aktöre, Server und Client\n"
+            "### Vorteile\n"
+            "- Unterstützt von sehr vielen Systemen und Anwendungen\n"
+            "### Nachteile\n"
+            "- Limitierte Funktionen\n"
+            "- Verbindungslose varriante ist offitiell nicht mehr erwünscht\n"
+            "## Links\n"
+            "- Wikipedia : https://de.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol",
+            nodeProtocol)
+        self.NodeGraphCreateSubTree(
+            "FTP",
+            "# [RFC 959]\n"
+            "## Info\n"
+            "# File Transfer Protocol"
+            "Ein Netzwerk Protokoll um über TCP/IP zu kommunizieren.\n"
+            "Als Kernfunktion ist der Datenaustausch zwischen einem Client und einem Server.\n"
+            "Dieses Protokoll wird oft genutzt um Daten zwischen Client und Server zu verschieben\n"
+            "### Abhänigkeiten\n"
+            "- Mindestens 2 Aktöre, Server und Client\n"
+            "### Vorteile\n"
+            "- Unterstützt von sehr vielen Systemen und Anwendungen\n"
+            "### Nachteile\n"
+            "- Limitierte Funktionen\n"
+            "- Verbindungslose varriante ist offitiell nicht mehr erwünscht\n"
+            "## Links\n",
+            nodeProtocol)
 
 
     def NodeGraphCreateAAAAAAATree(self, parrant: Node):
@@ -372,7 +717,7 @@ class GraphContent:
                            ""
                            "\n# Bilder\n"
                            "Zu jedem Knoten können Sie ein Bild hinzufügen. Hier für ist es notwendig "
-                           "das dieses Bild im Ordner Resources\Images abgelegt wird und der Name der Datei "
+                           "das dieses Bild im Ordner Resources/Images abgelegt wird und der Name der Datei "
                            "als dritter Parameter spezifiziert wird. Denken Sie daran Bilder in Git "
                            "hinzuzufügen: Rechtsklick + Git + Add. Auch diese Bilder müssen Sie anschließend "
                            "commiten und pushen."
