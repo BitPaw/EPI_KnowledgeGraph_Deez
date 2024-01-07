@@ -11,6 +11,6 @@ Knowlegegraph in Python
 ## Team
 | Martikel Nummer |     Name      | Thema                                                                       |
 |:---------------:|:-------------:|:----------------------------------------------------------------------------|
-|       xxx       | Lukas Momberg |                                                                             |
-|       xxx       |      Pas      |                                                                             |
+|       11141259       | Lukas Momberg | Programmierung und deren Elemente                                                                            |
+|       11146341       |  Pascal Brus      | Team management                                                                            |
 |    11141394     |  Jona Siebel  | Struktur der Hochschule mit Kritik und Wünschenswertem wissen von Studenten |
