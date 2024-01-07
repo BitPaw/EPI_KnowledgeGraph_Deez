@@ -50,9 +50,19 @@ class GraphContent:
             node)
         nodeBinary = self.NodeGraphCreateSubTree(
             "Binary",
-            "Das Binär format ist effizient in der speicherung, "
+            "## Info\n"
+            "In diesem Format werden Daten sehr Kompakt direkt an einander gereiht gespeichert. Hier "
+            "wird auf Menschlich nützliche elemente verzichttet und der Nutzen der Machiene erhöht."
+            "Hier kann es oftmals dazu kommen das die Daten so kompakt sind, das es sehr aufwenig ist diese "
+            "Daten zu dekomplemieren. Es gibt zahlreiche Algorithmen und formate die dies ermöglichen."
+            "Manche Formate bieten zudem eine Qualitätsstufte, damit kann nicht nur die Qualität gesteuret "
+            "werden sondern auch die Komplexität und den damit zusammenhängenden Aufwand.\n\n"
+            "Als Weiterens haben Binär Dateien das Problem, das wenn die Datei auch nur leicht "
+            "Fehlerhaft ist, es mit erhöhter Warscheinlichkeit dazu führen kann das die Datei nicht mehr lesbar ist."
+            "Wenn dies geschied ist es fast unmöglich diese Datei wieder her zu stellen."
              "## Vorteile\n"
             "- Einfacher zu lesen und zu schreiben als Text basierte Dateien\n"
+            "- Das Format ist effizienter in der Speicherung\n"
             "## Nachteile\n"
             "- Ist nicht direkt änderbar, man benötigt ein Programm um die Datei zu verändern.\n"
             "- Sollte man diese Fehlerhaft abändern, kann es dazu kommen, das die Datei nicht mehr lese fähig wird.",
@@ -332,27 +342,136 @@ class GraphContent:
 
         nodeDataOriented = self.NodeGraphCreateSubTree(
             "Data Oriented",
-            "", nodeLanguage)
+            "# Daten Orentierte Sprachen"
+            "Diese Art von Sprachen wird oft unterschätzt aber ist ein grundpfeiler für "
+            "Datenverarbeitung aller Art.\n"
+            "",
+            nodeLanguage)
         self.NodeGraphCreateSubTree(
             "C",
-            "",
+            "## Info\n"
+            "Zuerst erschienen in 1972 aber erst wirklich durchgesetzt in 1989/1990 ist "
+            "C einer der Grundpfeiler der heutingen Computertechnik. Trotz allem wird diese Sprache von dem meisten "
+            "ermüdigent angesehen, da sie nicht gerade freundlich für Anfäger ist. Aus diesem aber "
+            "auch mehreren Gründen werden viele andere Sprachen bevorzugt.\n"
+            "### Abhänigkeiten\n"
+            "- Kompartibler Kompiler\n"
+            "### Vorteile\n"
+            "- Sehr minimalistische Sprache\n"
+            "- Einfach zu lernen\n"
+            "- Hohe kontrolle über Daten\n"
+            "### Nachteile\n"
+            "- Man kann schnell in komplizierte fehler kommen die nicht leicht verständlich für anfanger sind.\n"
+            "- Mühseliger als andere Sprachen\n"
+            "- nahezu kaum Standard Bibiloteken (nur POSIX)\n"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/C_(programming_language)\n",
             nodeDataOriented)
         nodeCPP = self.NodeGraphCreateSubTree(
             "C++",
-            "",
+            "## Info\n"
+            "C++, wie der name schon verät ist eine Erweiterung von C.\n"
+            "Bjarne Stroustrup entwickelte C++ um Funktionen aus anderen nicht so "
+            "gelungenen Sprachen heraus zu nehmen, zu verbessen und sie dann in C ein zu bauen. "
+            "Somit entstand langsam die Sprache **C mit Klassen**. Mit mehr Erweiterungen und "
+            "Verbesserungen wurde es dann zu C++."
+            "### Abhänigkeiten\n"
+            "- Kompartibler Kompiler\n"
+            "### Vorteile\n"
+            "- Verbesserter Syntax\n"
+            "- Generische Typen können genutzt werden\n"
+            "- Strukturen, jetzt Klassen, können Funktionen enthalten\n"
+            "- Funktionen können Überlanden werden\n"
+            "### Nachteile\n"
+            "- Vererbungen können, wie auch in anderen Sprachen, komplexe interaktive Fehler enstehen lassen\n"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/C%2B%2B\n",
             nodeDataOriented)
 
         nodeObjectOriented = self.NodeGraphCreateSubTree(
             "Object Oriented",
-            "",
+            "# Objekt Orientiertes Programmieren\n"
+            "## Info\n"
+            "Auch wenn man in jeder Sprache Objekte generell nutzt, werden damit ehr Sprachen "
+            "bezeichnet die viel genauer mit Objekten umgehen. In Sprachen wie C und C++ werden "
+            "alle informationen von Objekten fallen gelassen. Damit sind die Programme deutlich "
+            "kleiner. Als Nachtwil natürlich gibt es keine Informationen über enthaltene Objekte "
+            "und deren Struktur. Hier enstehnt nun das mögliche Problem das man währen der Laufzeit "
+            "an genau diese Informationen möchte, in nich Objekt orientieten Sprachen geht soetwas nicht.\n"
+            "Mit genau dem selben Punkt ist es also auch möglich, wenn man diese Informationen gespeichert "
+            "hat, während der Laufzeit Objekte zu erstellen oder auch zu analysieren."
+            "### Vorteile\n"
+            "- Verbesserte Strukturierung von Logischen zusammenhängen\n"
+            "- Objekte haben eine Identität"
+            "- Umgang mit der existenz von Objekten und deren Indentität\n"            
+            "### Nachteile\n"
+            "- Hohe Gefahr Objekte zu komplex zu Erstellen\n"
+            "- Code explodiert in Komplexität",
             nodeLanguage)
         self.NodeGraphCreateSubTree(
             "Java",
-            "",
+            "## Info\n"
+            "Java ist eine Sprache die Entwickelt worden ist um eine sichere Sprache zu "
+            "erschaffen die es Programmen erlaubt auch bei einem größeren Fehler nicht ab zu stürtzen. "
+            "Zudem war ein großer Punk das diese Programme auf all möglicher Hardware laufen soll."
+            "Die Idee hinter Java war, das man nur die Virtuelle Machine erstellen muss, und jedes "
+            "Java Programm kann auf ihr laufen. Damit sind die meisten Probleme behoben die zu der Zeit "
+            "mit den Betriebsystem kriegen und ihrere inkompartibilität zwischeneinander gelößt scheint."
+            "Im laufe der Zeit konnte sich Java mit großer stärke als beliebteste Sprache durchsetzen, "
+            "Auch wenn die Vorteile von Java den normal nutzer nicht awirklich viel bietet. So umso mehr "
+            "hat der effekt in der Industrie eine Ära definiert. Selbst heute noch beforzugen Firman Java "
+            "vor anderen Sprachen. In den letzeren Jahren hat Java dennoch viel Negative Kritik bekommen da "
+            "die Sprachwelt sich weg von Interativen und Objektorientierten Sprachen bewegt und Skriptsprachen "
+            "immer mehr und mehr beforzugt werden. Dies gillt aber nur für kleinere Projekte. "
+            "Für große Projekte wird immernoch Java beforzugt, auch wenn es seit längerem eine alternative "
+            "gibt namens Kotlin. Diese Funktioniert läuft genauso auf der Virtuellen Machine wie Java auch. "
+            "Somit muss also nicht auf eine neue Machine umgestiegen werden und der Umsprung kann direkt "
+            "passieren. Android hat in den meisten fällen die auch schon getan."
+            "Java wurde früher oft in kleineren Gertäten genutzt. "
+            "Dazu gehören Fernsehr, Fernbedinungen, Boxen für das Karbelversehn aber auch viele viele mehr. "
+            "Da bei falscher programmierung oder sogar einem größeren Fehler das ganze system absturtzen kann, wurde "
+            "Java anstelle von C genutzt, um mit Hilfe der Virtuellen Machine diese Fatalen Fehler mit dem "
+            "mit entwickelten StackTrace und weiteren Detailierten infomationen abfagne zu können. "
+            "Mit diesen Infomationen über die Fehlzustände die Übersendet werden können, können Fehler deutlich besser "
+            "nachvollzigen werden und damit auch ausgebessert werden."
+            "Mit dieser Automatisierten Fehlersammelung und der Modifikation von einem Laufenden System konnte "
+            "Software Qualität deutlich besser überwacht und ausgebessert werden\n"
+            "### Abhänigkeiten\n"
+            "- Java Virtuelle Maschine (JVM)\n"      
+            "- Kompartibler Kompiler\n"       
+            "### Vorteile\n"
+            "- Durch die Nutzung einer Abstaktion durch die Java Virtuelle Maschine (JVM) ist "
+            "es möglich das Code auf jedem System nahezu gleich läuft"
+            "### Nachteile\n"
+            "- Da der Code nicht nativ laufen kann, muss immer eine Java Virtuelle Maschine (JVM) genutzt werden\n"
+            "- Der Garbage Collector ist bekannt dafür nicht effizient zu sein und bei einem großen Projekt "
+            "wird dieser ein Problem\n"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/Java_(programming_language)",
             nodeObjectOriented)
         self.NodeGraphCreateSubTree(
             "C#",
-            "",
+            "## Info\n"
+            "C# ist eine weiterführung der Sprache C++. Daher könnte man auch erkennen, das das # "
+            "für ein 2x2 Plus steht. Also anders gesagt ist das C++++.\n"
+            "Die Idee hinter C# war im grunde nur \"Java aber von Microsoft\". Somit also "
+            "hat sich Mirosoft daran gesetzt eine Java ähnliche Sprache zu entwickeln."
+            "Dennoch, anders als Java, wurde C++ ehr als inspiration gezogen als andere Sprachen."
+            "Somit ist C#, wie der name auch schon verät, mehr an den C Sprachen angelehnt."
+            "Wie auch in Java, wird eine Virtuelle Machine genutzt. Hier nennt sich diese dot-NET"
+            "Anders als in Java ist es möglich geteiile Bibiloteken (DLLs) zu nutzen."
+            "Damit ist es möglich einen Brücke zu code aus anderen Sprachen zu schaffen."
+            "Somit ist es also auch möglich allen perfomanten code in Beispielsweise C zu schreiben "
+            "Und diesen dann in C# auf zu rufen."
+            "### Abhänigkeiten\n"
+            "- .NET Klassisch, Framework oder Core runtime"
+            "### Vorteile\n"
+            "- Sehr angenehme integration mit dem System\n"
+            "- Möglichekeit code aus in C compilierten Bibiloteken auf zu rufen\n"
+            "### Nachteile\n"
+            "- Interaktionen die nicht bedacht wurden, sind sehr schlecht und notdürftig implementiert\n"
+            "- Chaotische vielfallt von runtimes"
+            "## Links\n",
             nodeObjectOriented)
         self.NodeGraphCreateSubTree(
             "VB.Net",
@@ -363,7 +482,13 @@ class GraphContent:
 
         nodeFunctional = self.NodeGraphCreateSubTree(
             "Functional",
-            "# Funktionale Sprachen",
+            "# Funktionale Sprachen\n"
+            "Funktionale Sprachen nutzen eine spizielle eigenschaft indem nur Funktionen genutzt "
+            "werden die eine Gewisse Menge annimmt und einen Teil davon wieder zurück gibt\n"
+            "In interativen Spachen ist oftmals der vergleich zu puren Funktionen."
+            " Hier ist der Vorteil das diese Funktionen keinen Zustand besitzen und somit keine "
+            "Veränderungen an Objekten darstellen, da diese deutlich schwerer zu testen sind und somit "
+            "bei tests ehr unerwünscht sind.",
             nodeLanguage)
         self.NodeGraphCreateSubTree(
             "Haskell",
@@ -372,25 +497,36 @@ class GraphContent:
 
         nodeScript = self.NodeGraphCreateSubTree(
             "Script",
-            "# Skript Sprachen",
+            "# Skript Sprachen\n"
+            "Anders als Code der Kompiliert werden muss, können Skripte direkt mit einem Interpretations "
+            "program ausgeführt werden. Dadurch kann der Code mehr portierbar sein und damit zu unterstützung diehnen "
+            "Code auf verschiedenen Geräten gleich laufen zu lassen.",
             nodeLanguage)
         self.NodeGraphCreateSubTree(
             "Bash",
-            "",
+            "# Linux Bash Script\n"
+            "Die bekannte Linux Bash ist die Konsole für alle Linuxs Varrianten. "
+            "Hierzu dient das Script was die ausführung dieser Automatisiert",
             nodeScript)
         self.NodeGraphCreateSubTree(
             "PowerShell",
-            "",
+            "Eine neuere version der Windows Eingabeaufforderung.\n"
+            "Sie enthällt mehr Funktionen als sein vorgänger und ermöglicht auch Skripte direkt zu nutzen.",
             nodeScript)
         self.NodeGraphCreateSubTree(
             "CMD",
-            "# Windows Commandline\n"
+            "# Windows Eingabeaufforderung\n"
             "Die Windows Commandline ist, wie man sie auch schon seit DOS kennt, die bekannte Schwarze Konsole.",
             nodeScript)
         self.NodeGraphCreateSubTree(
             "VBS",
             "# Visual Basic Script\n"
-            "Dies ist eine Script Form von VisualBasic.NET. Dies wird meist in Excel als Makro funktionen genutzt",
+            "Dies ist eine Script Form von VisualBasic.NET. Dies wird meist in Excel als Makro funktionen genutzt\n"
+            "### Vorteile\n"
+            "- Einfach zu schreiben\n"
+            "### Nachteile\n"
+            "- Sehr gerinnge sicherheit"
+            "- Wird sehr heufig für hacker angriffe genutzt",
             nodeScript)
 
         nodeRelational = self.NodeGraphCreateSubTree(
@@ -458,7 +594,12 @@ class GraphContent:
             "# Speicher Haufen\n"
             "Der Weg um dynamisch außerhalb des Stacks Speicher an zu fordern."
             "Da der Speicher außerhalb liegt, wirkt der sich der Heap auch nicht auf den Stack aus."
-            "Jedoch ist es möglich, das durch das aufblähen des Heaps und des Stacks zugleich eine kollision entsteht",
+            "Jedoch ist es möglich, das durch das aufblähen des Heaps und des Stacks zugleich eine kollision entsteht"
+            "### Vorteile\n"
+            "- Dynamische erzeugung von Speicher\n"
+            "### Nachteile\n"
+            "- Aufwenige Regestrierung der Speicherbereiche\n"
+            "- Mägliche ineffiziente Nutzung durch schlechtes Design",
             nodeMemory)
         self.NodeGraphCreateSubTree(
             "Mapping",
@@ -673,7 +814,7 @@ class GraphContent:
 
         self.NodeGraphCreateProgrammingTree(nodeMain)
         self.NodeGraphCreateAAAAAAATree(nodeMain)
-        self.NodeGraphCreateOrganisationTree(nodeMain)
+        #self.NodeGraphCreateOrganisationTree(nodeMain)
         ###################################################
 
         ###################################################
