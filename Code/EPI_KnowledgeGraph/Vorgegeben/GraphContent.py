@@ -656,6 +656,44 @@ class GraphContent:
                                                          " den 9 oder 12 Wochen bearbeitungszeitraum zu überschreiten."
                                                          , node)
 
+        nodeInformationensfluss = self.NodeGraphCreateSubTree("Quellen für Informationen",
+                                                              "Um einwenig zu Visualisieren wie viele verschiedene Quellen für Informationen es gibt die alle genutzt werden nutze ich diesen Knote."
+                                                                        "Die Bewertung der verschiedenen Informationsquellen hängt von dem verhältnis von Qualität und Quantität der Medien und des aufwands diese Informationen zu erhalten."
+                                                              ,node)
+        nodeEmails = self.NodeGraphCreateSubTree("E-Mails",
+                                                 "Der Kontakt per E-Mail ist zwar wegen der Präsentz durch zum Beispiel Weiterleitug sehr Gut. Ein Kritik Punkt ist, jedoch die Nachrichten überflutung."
+                                                 "Die Präsentz wird jedoch nur so hoch gewertet da ich meine E-Mails auf dem Handy habe und somit nicht den Aufwend habe Täglich Nachrichten zuüberprüfen obwohl teilweise keine neuen infos da sind."
+                                                 "Den Informations überfluss ist auch anscheinend Groß für die Professoren. Diese Annahme resultiert aus mehreren Kommunikationen mit Professoren die Nachrichten die sie betreffen nur durch die Hohe Priorität"
+                                                 " von den allgemeinen Informationen von einem anderen Kampus nur dürch die Priorität unterscheiden können."
+                                                  , nodeInformationensfluss)
+
+        nodeILIAS = self.NodeGraphCreateSubTree("ILIAS/ILU",
+                                                "Das Illias ist das Alte System um alle Dateien zu bündlen. Informationen von diesem System, werden glücklicherweise per E-Mail weitergeleitet, jedoch wird das Hochladenm von dateien nur gemeldet wenn es in einer Gruppe ist."
+                                                "Illias ist jedoch wenn die Daten gut Sortiert wurden die Zweit/Dritt beste Datenquelle da nur Modul relevantes in den Kursen sind. Dies wird auch Teilweise zur abgabe von Praktika genutzt um nicht unfaire vorteile Studenten zu geben"
+                                                " die einen Späteren kontroll Termin haben. Das Ilias hat auch ein Forum für Generelle frage zur Vorlesung und Organisation welches jedoch nur im äußersten genutzt wird da generellere Fragen meist in den Vorlesungen geklärt werden."
+                                                , nodeInformationensfluss)
+
+        nodeTHeLearning = self.NodeGraphCreateSubTree("THe-learning",
+                                                       "THe-learning ist die beste Lernplatform der TH-Köln meiner Meinung nach. Ein besonders guter Vorteil ist die Fortschrittleiste da für die Kurse es eine Gute Rückmeldung gibt wie weit man im vergleich zu den Erwartungen"
+                                                        " des Professors ist. Zudem fördert diese Lernplatform Vorlesungen zusammengefasst hochzuladen um trotzdem auf Frage von Studenten einzugehen zu können hat jede Übung und Vorlesung ein Kommentarbereich. Auf dieser Platform sind"
+                                                        " die Vorlesungen und Übungen Chronologisch nach abfolg wie diese Themen zu lernen sind. Um Fragen und Kommentare aller Art zu fördern werden die Steller Anonymisiert."
+                                                       , nodeInformationensfluss)
+
+        nodeWhatsappChats = self.NodeGraphCreateSubTree("Whatsapp Gruppen",
+                                                        "Whatsapp Gruppen von Kursen werden oft von Studenten selber erstellt. Teils werden auf diese Whatsapp Gruppen in den Vorlesungen kurz hingewiesen. Diese Gruppen haben die beste Möglichkeit um generelle Wissens fragen ohne"
+                                                        " individuell den Professor zu Kontaktieren. Ein riesen Nachteil ist jedoch, dass nicht immer eine Antwort garantiert ist."
+                                                        ,nodeInformationensfluss)
+
+        nodePraktika = self.NodeGraphCreateSubTree("Praktika",
+                                                   "Das vollenden der Praktika ist zur Prüfungs-anmeldung der Kurse Notwendig. Manche Praktika erfordern Gruppenarbeit jedoch kann dies schädlich sein, da Gruppen Mitglieder die Leistung anderer zu dem machen müssen und Endprojekte"
+                                                   " ohne Pflicht Meilensteine die Bearbeitung Flexiebeler macht und so anpassbarer an Persönliche Lagen macht."
+                                                   , nodeInformationensfluss)
+
+        nodeÜbergreifendeModule = self.NodeGraphCreateSubTree("Studiengang Übergreifende Module",
+                                                              "Studiengang Übergreifende Module sind in den ersten 2 Semestern sehr hilfreich da so Theorethisch ein Grundverständniss der Themen sichergestellt sein sollte. In der Praxis habe ich festgestellt dass Kurse die als nicht so"
+                                                              " wichtig gesehen werden nur zwangsweise gelernt werden, jedoch wieder schnell vergessen werden (Ein beispiel ist Algorithmik und Programmierung für Wirtschafts-Informatiker). "
+                                                              , nodeKurse)
+
     def NodeGraphCreateSubTree(self, name: string, description: string, parent: Node):
         node = Node(description, name)
         self.nodeList.append(node)
@@ -671,8 +709,8 @@ class GraphContent:
         #nodeMain.connect(paper_source_example_node)
         self.nodeList.append(nodeMain)
 
-        self.NodeGraphCreateProgrammingTree(nodeMain)
-        self.NodeGraphCreateAAAAAAATree(nodeMain)
+        #self.NodeGraphCreateProgrammingTree(nodeMain)
+        #self.NodeGraphCreateAAAAAAATree(nodeMain)
         self.NodeGraphCreateOrganisationTree(nodeMain)
         ###################################################
 
