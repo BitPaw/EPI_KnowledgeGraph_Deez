@@ -9,8 +9,8 @@ Knowlegegraph in Python
 - PyQt5, Python Qt UI Elements
 
 ## Team
-| Martikel Nummer |     Name      |
-|:---------------:|:-------------:|
-|       xxx       | Lukas Momberg |
-|       xxx       |      Pas      |
-|    11141394     |  Jona Siebel  |
+| Martikel Nummer |     Name      | Thema                                                                       |
+|:---------------:|:-------------:|:----------------------------------------------------------------------------|
+|       xxx       | Lukas Momberg |                                                                             |
+|       xxx       |      Pas      |                                                                             |
+|    11141394     |  Jona Siebel  | Struktur der Hochschule mit Kritik und Wünschenswertem wissen von Studenten |

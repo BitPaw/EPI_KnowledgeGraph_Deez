@@ -641,20 +641,35 @@ class GraphContent:
         node.connect(parrant)
 
         nodeKurse = self.NodeGraphCreateSubTree("Kurse",
-                                                "Manche Kurse sind Pflicht, während andere Wählbar sind jedoch sind nicht alle kurse anderer Studiengänge wählbar."
-                                                "Eine bessere Konfigurierung des Studiums wie im Master ist Stark wünschenswert (auch von andern Kommilitonen)"
-                                                "Zudem ist die Errechnung der Bearbeitungsdauer/ETC-Punkte teilweise sehr Unstimmig da zum Beispiel eine Bachelorarbeit 12 Punkte gibt und alleine"
-                                                "die Einarbeitung in diese schon solange dauern kann."
+                                                "Manche Kurse sind Pflicht, während andere wählbar sind. Die Menge der Wählbaren Kurse anderer Studiengänge"
+                                                " ist jedoch sehr Klein und stark Begrentzt. Eine bessere Konfigurierung des Studiums wie im Master ist stark wünschenswert."
+                                                "Die Meinung aus dem Vorigen Satzt war mit eine der meist getätigten Aussagen von Studenten im Studiengang Allgemeine Informatik."
+                                                "Zudem ist die Errechnung der Bearbeitungsdauer/ETC-Punkte teilweise sehr Unstimmig. Ein sher gutes Beispiel zu diesem Punkt" 
+                                                " ist die Bachelorarbeit welche 12 ETC-Punkte gibt und die einarbeitung in diese selten kürzer ist als die veranschlagte Zeit"
+                                                " für die Bachelorarbeit und zwar 360 Stunden."
                                                 , node)
 
         nodeBachelorarbeit = self.NodeGraphCreateSubTree("Bachelorarbeit",
-                                                         "Eine Bachelorarbeit wird meist als Ende des Bachelorstudiums gesehen jedoch stimmt dies nicht wirklich.Diese kann normalerweise"
+                                                         "Eine Bachelorarbeit wird meist als Ende des Bachelorstudiums gesehen jedoch stimmt dies nicht wirklich. Diese kann normalerweise"
                                                          " ab Sammlung der hälfte der zum Abschluss benötgen ETC-Punkte beantragt werden (Referenziert von einem Studenten der Uni Siegen)."
                                                          "Die Bewertung der Bachelorarbeit mit 12 ETC-Punkten ist von einigen Studenten fraglich unter der bedingung dass ein ETC-Punkt 30 Stunden Arbeit entsprechen."
-                                                         "Aus berrichten anderer Studenten auch an anderen Universitäten sind diese 360 Stunden als minimum zum Schreiben und Formulieren der Bachelorarbeit zu verplanen."
+                                                         "Aus berrichten anderer Studenten von dieser und von anderen Universitäten sind diese 360 Stunden als minimum zum Schreiben und Formulieren der Bachelorarbeit zu verplanen."
                                                          "Durch diesen Unterschied wird von Studenten oftmals die Bearbeitund der Bachelorarbeit erst Beantragt wenn diese schon Fertig durchgeführt und geschrieben ist um nicht"
                                                          " den 9 oder 12 Wochen bearbeitungszeitraum zu überschreiten."
                                                          , node)
+
+        nodeDruck = self.NodeGraphCreateSubTree("Zeitdruck der Bachelorarbeit",
+                                                "Da die Bachelorarbeit ab anmeldung ein Zeitlimit von 9 oder 12 Wochen hat entsteht Zeitdruck ob man dies Überhaupt in dieser Zeit schafft. Viele Studenten starten ihre"
+                                                " Bachelorarbeit erst, wenn diese Vollständig beendet ist. Aus Quelllen anderer Studenten die am Master Sitzen oder Ihr Studium mit der Bachelorarbeit beendet haben, habe ich auch"
+                                                " auch von einem Fall erfahren wo jemand an 9 Monate an seiner Bachelorarbeit saß."
+                                                , nodeBachelorarbeit)
+
+        nodeBachelorarbeitBeiFirmen = self.NodeGraphCreateSubTree("Bachelorarbeit in einem Konzern",
+                                                                  "Es wirkt Profitabel seine Bachelorarbeit einem Konzern zu schreiben, da man denkt es sei ja schön für die Bearbeitung seiner Bachelorarbeit bezahlt zu werden."
+                                                                  "Das große Problem in dem ich bin ist, dass ich durch das beheben eines Problems und das Längere einlesen in die Thematik gelernt habe dass dies nicht wirklich von Personen"
+                                                                  " Verwendet wird und durch die kleine Lösung des Existiernden Problems auch für den Konzern aus meiner Sicht und deswegen Schuldgefühle wegen der Verschwendung meines Gehlats"
+                                                                  " sich bilden."
+                                                                  , nodeBachelorarbeit)
 
         nodeInformationensfluss = self.NodeGraphCreateSubTree("Quellen für Informationen",
                                                               "Um einwenig zu Visualisieren wie viele verschiedene Quellen für Informationen es gibt die alle genutzt werden nutze ich diesen Knote."
@@ -662,7 +677,7 @@ class GraphContent:
                                                               ,node)
         nodeEmails = self.NodeGraphCreateSubTree("E-Mails",
                                                  "Der Kontakt per E-Mail ist zwar wegen der Präsentz durch zum Beispiel Weiterleitug sehr Gut. Ein Kritik Punkt ist, jedoch die Nachrichten überflutung."
-                                                 "Die Präsentz wird jedoch nur so hoch gewertet da ich meine E-Mails auf dem Handy habe und somit nicht den Aufwend habe Täglich Nachrichten zuüberprüfen obwohl teilweise keine neuen infos da sind."
+                                                 "Die Präsentz wird jedoch nur so hoch gewertet da Kommulitonen berrichten ihre E-Mails auf dem Handy zu haben und somit nicht den Aufwend habe Täglich Nachrichten zuüberprüfen obwohl teilweise keine neuen infos da sind."
                                                  "Den Informations überfluss ist auch anscheinend Groß für die Professoren. Diese Annahme resultiert aus mehreren Kommunikationen mit Professoren die Nachrichten die sie betreffen nur durch die Hohe Priorität"
                                                  " von den allgemeinen Informationen von einem anderen Kampus nur dürch die Priorität unterscheiden können."
                                                   , nodeInformationensfluss)
@@ -674,7 +689,7 @@ class GraphContent:
                                                 , nodeInformationensfluss)
 
         nodeTHeLearning = self.NodeGraphCreateSubTree("THe-learning",
-                                                       "THe-learning ist die beste Lernplatform der TH-Köln meiner Meinung nach. Ein besonders guter Vorteil ist die Fortschrittleiste da für die Kurse es eine Gute Rückmeldung gibt wie weit man im vergleich zu den Erwartungen"
+                                                       "THe-learning ist die beste Lernplatform der TH-Köln laut einiger Kommulitonen. Ein besonders guter Vorteil ist die Fortschrittleiste da für die Kurse es eine Gute Rückmeldung gibt wie weit man im vergleich zu den Erwartungen"
                                                         " des Professors ist. Zudem fördert diese Lernplatform Vorlesungen zusammengefasst hochzuladen um trotzdem auf Frage von Studenten einzugehen zu können hat jede Übung und Vorlesung ein Kommentarbereich. Auf dieser Platform sind"
                                                         " die Vorlesungen und Übungen Chronologisch nach abfolg wie diese Themen zu lernen sind. Um Fragen und Kommentare aller Art zu fördern werden die Steller Anonymisiert."
                                                        , nodeInformationensfluss)
@@ -684,16 +699,77 @@ class GraphContent:
                                                         " individuell den Professor zu Kontaktieren. Ein riesen Nachteil ist jedoch, dass nicht immer eine Antwort garantiert ist."
                                                         ,nodeInformationensfluss)
 
+        nodeTHKoelnWebseite = self.NodeGraphCreateSubTree("Die TH Köln Webseite",
+                                                          "Die Webseite der TH Köln ist sehr unübersichtlich und schwer zu Navigieren der einzige Weg Informationen aus der Webseite zu bekommen iost durch Google."
+                                                          , nodeInformationensfluss)
+
+        nodeStudienBuero =self.NodeGraphCreateSubTree("Studienbüro",
+                                                      "Das Studienbüro soll als Anlaufstelle für Fragen zur Organisierung des Studiums. Jedoch wurde mir geschildert von einem Mentor, dass Studenten es meiden da dass Personal dort sehr angespannt sei bei rückfragen"
+                                                      , nodeInformationensfluss)
+
         nodePraktika = self.NodeGraphCreateSubTree("Praktika",
                                                    "Das vollenden der Praktika ist zur Prüfungs-anmeldung der Kurse Notwendig. Manche Praktika erfordern Gruppenarbeit jedoch kann dies schädlich sein, da Gruppen Mitglieder die Leistung anderer zu dem machen müssen und Endprojekte"
-                                                   " ohne Pflicht Meilensteine die Bearbeitung Flexiebeler macht und so anpassbarer an Persönliche Lagen macht."
+                                                   " ohne Pflicht Meilensteine die Bearbeitung Flexiebeler macht und so anpassbarer an Persönliche Lagen macht. Manche Kurse erlauben eine anerkennung für das Praktikum  wenn eine Ausbildung in dem Berreich des Moduls absolviert wurde."
                                                    , nodeInformationensfluss)
 
         nodeÜbergreifendeModule = self.NodeGraphCreateSubTree("Studiengang Übergreifende Module",
                                                               "Studiengang Übergreifende Module sind in den ersten 2 Semestern sehr hilfreich da so Theorethisch ein Grundverständniss der Themen sichergestellt sein sollte. In der Praxis habe ich festgestellt dass Kurse die als nicht so"
-                                                              " wichtig gesehen werden nur zwangsweise gelernt werden, jedoch wieder schnell vergessen werden (Ein beispiel ist Algorithmik und Programmierung für Wirtschafts-Informatiker). "
+                                                              " wichtig gesehen werden nur zwangsweise gelernt werden, jedoch wieder schnell vergessen werden (Ein beispiel ist Algorithmik und Programmierung für Wirtschafts-Informatiker). Zu dem führen diese Kurse leider dazu Tendieren die geringste"
+                                                              " gemeinsamkeit zu lehren was dann in folge Kursen Kompensiert werden muss."
                                                               , nodeKurse)
 
+        nodePrüfung = self.NodeGraphCreateSubTree("Prüfung",
+                                                  "Prüfungen können verschiedenst ausfallen wie in diesem Modul baut sich die Note aus den einzelnen Praktika gepaart mit dem Abschluss Projekt zusammen. Andere Module haben Prüfungen in Müdlicher Form. Die Beste Form der Prüfung meiner Meinung"
+                                                  " nach ist, jedoch die Projekt Prüfung. Dies art der Prüfung ist, jedoch nur gut wenn dieses Projekt auch die Praktika ablöst. Das Kritischste Problem was Studenten sehen was nur in den Modulen ST1, ST2 und AP1 vernümpftig umgesetzt wurde, war Aufgaben in denen mann Code"
+                                                  " Schreiben muss. Diese Fragen haben das Problem dass diese mit Code Editoren geschreiben werden sollten und meist zu knapp abgemessen wurden. Wegen dieser Fragen konnte ich AP2, welches ich im Sommersemester 2020 belegt habe nur durch eine bewertete Ausarbeitung"
+                                                  " bestehen. Dies wird leider nicht mehr angeboten da es zu viel aufwand zur überprüfung ist, dies ist Schade da diese Art der Prüfung bei Studenten Sehr beliebt sind."
+
+                                                  ,nodeKurse)
+
+        nodeBesondereUmstände = self.NodeGraphCreateSubTree("Besondere Umstände im Studium",
+                                                            "Es gibt mehrere Besondere Umstände im Studium die das Studium Erschweren können."
+                                                            ,node)
+
+        nodeStudiumBeiEltern = self.NodeGraphCreateSubTree("Leben bei den Eltern",
+                                                           "Das Studium im Elternhaus kann Kostenspaarend sein wobei, jedoch selbst bei nicht Aktivem Druck durch die Eltern das Studium so schnell wie möglichst zu Beenden dieser auftritt. Dieses Problem kann sich auch mit anderen Problemen"
+                                                           " kombinieren wie zum Beispiel dem Problem des Arbeitens währen des Studium. Dies kann bei Studierenden teilweise auch ein Drang sein da die Familie dieses Geld benötigt."
+                                                           , nodeBesondereUmstände)
+
+        nodeStudierenInRegelstudienzeit = self.NodeGraphCreateSubTree("Studium in Regelstudienzeit",
+                                                                      "Das Studium in Regelstudienzeit ist im normal Fall unmöglich. Um in der Regelstudienzeit zu bleiben darf kein Fehler Passieren und wie schon benannt im Punkt Praktikum dass man aufgrund der Gruppe dieses Praktikum nicht besteht."
+                                                                      "Dies führt dazu dass man Aufgrund der Praktika und der Prüfungen keine Pausen hat und sehr viel Stress."
+                                                                      , nodeBesondereUmstände)
+
+        nodeStudiumMitADHS = self.NodeGraphCreateSubTree("Studium mit ADHS",
+                                                         "ADHS ist eine starke Erschwerung für das Studium da Studenten mit ADHS geschildert haben öfters beim wiederholen von Punkten oder weiteremerläutern leicht abschweife bei den Vorlesungen. Dieses Abschweifen brachte sie dazu manche Themen zu verpassen welche sie nur durch"
+                                                         " das erfragen von Kommulitonen lernen konnten. Aus diesem Grund bevorzugen sie die Vorlesungern im THe-Learning da diese Themen kurz auf den Punkt bringen und für sie das selber Recherchieren fördert. Einer dieser Studenten habe bisher einen Nachteilsausgleich nur für ein Modul beantragt"
+                                                         " dem Modul Disma welcher jedoch nicht zugestellt wurde. An den richtigen Professor ging diese jedoch da dieser schon in Pension war trat der Antrag nicht inkraft. Diesen Ausgleich sieht der Student nicht als erforderlich solange es darum gehe sein Wissen welches um die Funktionsweise des"
+                                                         "Themas gehe und nicht um Auswendiglern Wissen gehe."
+                                                         , nodeBesondereUmstände)
+
+        nodeStudiumUndArbeit = self.NodeGraphCreateSubTree("Studium und Arbeit",
+                                                           "Normalerweise sollte das Arbeiten und dass Studium nicht in geflikt geraten da die Priorisierung dann meist auf der Einnahmequelle liegt und somit meist nur Maximal Zwei Kurse pro Semester bearbeitet werden. Wenn dies sich nun aber mit anderen Umständen"
+                                                           " zusammen fügt kann es sein, dass entweder das Studium oder die Arbeit darunter leidet. Ein Kommulitone war 2020-2021 auch kurz davor gefeuert zu werden da er wegen dem extra Druck den Praktika mit Paralellen Abgabe zeiträumen ihm gegeben haben. Da er in jeder Gruppe"
+                                                           " als Tragendes Mitglied mit arbeiten musste und somit die Zeit die er als Freizeit haben sollte zur Arbeit verwenden. Die Freie Zeit die er noch hatte abgesehen von Schlaf musste somit für Arbeit verwendet werden wwelche nur 1-2 Stunden pro WWoche."
+                                                           , nodeBesondereUmstände)
+
+        nodeStudiumMitBurnout = self.NodeGraphCreateSubTree("Studium mit Burnout",
+                                                            "Ein heikles Thema ist Burnout immer, meines Verständnisses nach ist dies die Unfähigkeit zur Arbeit oder Ruhe aufgrund von stetigem Stress. Basierend auf dieser Definition meldete sich ein Student der seit 6 Semestern daran leidet .Diese Nacheffekte merkt"
+                                                            " er momentan noch, was die späte bearbeitung seines Projektes und die späte bearbeitung seiner Reflektionen zu folge hat. Um stetige bearbeitung von solchen Projekten sicher zu stellen und trotzedm den Stresslevel niedrig zu halten wäre es hilfreich dies so wie bei dem Modul"
+                                                            " MCI umzusetzen. Dies war überraschenderweise eine Gruppenarbeit, jedoch waren die Kontrollen immer mit Studentischer Hilfskraft um sicherzugehen dass die Gruppe gemeinsam arbeitet und um eine Reflektion der Arbeit zu geben. Zudem waren die Prüfer immer verständlich zu den"
+                                                            " Privaten Problemen. Sie gingen zudem soweit, dass sie die Struktur der Abgaben bei begründung so um zu strukturieren. Diese Umstrukturierung ging rein um die Fristen und konnte gleich gut sicherstellen, dass die Prüfung bestanden werden kann. so schilderte er eine Lösung für"
+                                                            " andere Module bei denen Personen Basierend auf Burnout scheitern."
+                                                            , nodeBesondereUmstände)
+
+        nodeStudiumWeiterEntfernt = self.NodeGraphCreateSubTree("Studium mit weiter Anfart",
+                                                                "Studenten mit sehr langer Fahrzeit schilderten, dass sie von Online Vorlesungen stark Profitert haben. Ein Punkt der dies besonders zeigte war eine Schilderung eines Studenten der für die Abnahme eines Praktika die 15 Minuten maximal dauernte eine strecken von"
+                                                                " 45 Minuten hin und 45 Minuten zurrück zurrück legen musste. Aufgrund seiner langen anfahrzeit und Benötigung eines Autos,da eine Zugfahrt nach Gummersbach für ihn 3 Stunden dauert, hat er sich mit der Struktur, dass nur das erste Semester Plicht in Präsents sei um Kontackte"
+                                                                " zuknüpfen und sonst alle Vorlesungen über die THe-Learning Platform anbieten. Da er im Wintersemester 2019/2020 Täglich Präsent da sein musste um alles zu lernen musste er auch Privat immer viel Organisatorisch planen damit er für die Vorlesunge das Auto bekomme."
+                                                                , nodeBesondereUmstände)
+
+        nodeRevuluionDurchOnlineUni = self.NodeGraphCreateSubTree("Revulution durch Online Semester",
+                                                                  ""
+                                                                  , node)
     def NodeGraphCreateSubTree(self, name: string, description: string, parent: Node):
         node = Node(description, name)
         self.nodeList.append(node)
