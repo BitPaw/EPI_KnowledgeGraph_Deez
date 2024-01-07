@@ -25,21 +25,26 @@ class GraphContent:
 
     # Requirement
     # 20 Nodes per Member
-    # 30.000 Words per Member
-    # ~~=> 1500 Words per node
+    # 30.000 symbols per Member
+    # ~~=> 1500 symbols per node
 
     # Demands to group
-    # 3 x 20 nodes     = 60 nodes
-    # 3 x 30.000 words = 90.000 words
+    # 3 x 20 nodes       = 60 nodes
+    # 3 x 30.000 symbols = 90.000 symbols
 
     def __init__(self, graph: Graph):
         self.NodeGraphCreateFromTeamDeez(graph)
         #self.create_demo_nodes(graph)
 
     def NodeGraphCreateProgrammingTree(self, parrant : Node):
-        node = Node("No", "Programming")
-        self.nodeList.append(node)
-        node.connect(parrant)
+
+        nodeProgramming = self.NodeGraphCreateSubTree(
+            "Programming",
+            "Dateien werden in unterschiedlich Formaten gespeichert, je nach dem wie man diese nutzen möchte."
+            "Hier sind entweder **Text** vasiert oder auch **Binär**. Beide mit ihren vor und nachteilen.\n"
+            "Zusätzlich gibt es auch gemischte formate, "
+            "da das lesen und schreiben dieser Formate aber ehr unkomfortabel ist, wird die nutzung ehr vermieden",
+            parrant)
 
         nodeDataFormat = self.NodeGraphCreateSubTree(
             "Dateiformat",
@@ -47,7 +52,7 @@ class GraphContent:
             "Hier sind entweder **Text** vasiert oder auch **Binär**. Beide mit ihren vor und nachteilen.\n"
             "Zusätzlich gibt es auch gemischte formate, "
             "da das lesen und schreiben dieser Formate aber ehr unkomfortabel ist, wird die nutzung ehr vermieden",
-            node)
+            nodeProgramming)
         nodeBinary = self.NodeGraphCreateSubTree(
             "Binary",
             "## Info\n"
@@ -141,10 +146,13 @@ class GraphContent:
             "MP3",
             "# Moving Picture Experts Group Layer III\n"
             "## Info\n"
+            "Eines der bekanntesten Musik Formate\n"
             "### Abhänigkeiten\n"
             "- ID3\n"
-            "### Vorteile\n"         
+            "### Vorteile\n"        
+            "- Sehr verbreitet\n"
             "### Nachteile\n"
+            "- Bis 2013 nur mit lizens nutzbar\n"
             "## Links\n",
             nodeBinary)
         self.NodeGraphCreateSubTree(
@@ -161,29 +169,45 @@ class GraphContent:
             "OBJ",
             "# Wavefront\n"
             "## Info\n"
+            "Ein weniger genutzes aber einfach zu lesendes 3D-Model format oft genutzt "
+            "in kleineren Projekten aber auch in der lernphase von game engine development\n"
             "### Abhänigkeiten\n"
             "- MTL\n"
-            "### Vorteile\n"         
+            "### Vorteile\n"      
+            "- Einfach zu lesen/Schreiben"
             "### Nachteile\n"
-            "## Links\n",
+            "- Ungenau/verwirrend definierte format regeln"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/Wavefront_.obj_file",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "OGG",
-            "# xxxxxxxxxxx\n"
+            "# Ogging Musik Datei\n"
             "## Info\n"
+            "Ein offener Standard for Musik und Sound Dateien."
+            "Oft verbreitet aber geschichtlich von MP3 dominiert und in der moderne von andren Formaten.\n"
             "### Abhänigkeiten\n"
-            "### Vorteile\n"         
+            "### Vorteile\n"     
+            "- Offener Standard"
             "### Nachteile\n"
-            "## Links\n",
+            "- Kompliziertes Format"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/Ogg",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "PDF",
             "# Portable Document Format\n"
             "# [ISO 32000]\n"
             "## Info\n"
+            "Die PDF Dateien haben schon lange den Standard in Dokumenten erreicht. "
+            "Kaum findet man Dateien die nicht in diesem Format bereitgestellt werden. "
+            "Egal ob Bestellungen, Rechnungen oder Dokumentationen, alle werden als PDF über das netzt verteilt."
             "### Abhänigkeiten\n"
+            "- XML Parser\n"
             "### Vorteile\n"
+            "- Sehr verbreitetes und unterstützes Format\n"
             "### Nachteile\n"
+            "- Sehr komisch zu lesen da das Format halb Binär und halb Text ist.\n"
             "## Links\n",
             nodeBinary)
         nodePNG = self.NodeGraphCreateSubTree(
@@ -191,21 +215,47 @@ class GraphContent:
             "# Portable Network Graphics\n"
             "# [RFC 2083]\n"
             "## Info\n"
+            "PNG Dateien sind einer der bekanntesten Bild Formate. Da PNG neben JPEG der bessere Standard ist."
+            "Daten die man als PNG verschickt behalten ihre Qualität für immer auf, sofern "
+            "Sie nict zwischendrin zu einer JPEG Datei umkonvertiert worden ist.\n\n"
+            "Zu PNG gehört auch ein großes Merkmal, die Transparenz. Da Bitmaps oftmals "
+            "nicht mit transparenz unterschtützt werden ist dieses Format immer der Weg.\n\n"
+            "Leider aber ist das PNG Format sehr komplex zu laden, das aber nicht zum vollen."
+            "Der inhalt einer PNG Datei besteht im genauen aus blöcken mit ihren ID nummern "
+            "und der Pixeldaten die mit dem ZLIB format verpackt sind. Um die Pixeldaten "
+            "also lesen oder schreiben zu können benötigt man diesen Algorithmus zuerst."
             "### Abhänigkeiten\n"
+            "- ZLIB"
             "### Vorteile\n"
+            "- rellativ kleine größe\n"
+            "- verlustfrei\n"
             "### Nachteile\n"
-            "## Links\n",
+            "- Extrem komplexe laden und speichern\n"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/PNG",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "JPG",
             "# Joint Photographic Experts Group\n"
             "# [ISO/IEC 10918]\n"
-            "# xxxxxxxxxxx\n"
             "## Info\n"
+            "JPEG ist eines der meist genutzen Formate im Internet\n"
+            "Einerseits ist die Qualität wirklich nicht die beste und durch mehrfaches verschicken "
+            "wird sie auch immer schlechter, dennoch ist es genau wegen der winzigen größe so "
+            "das dieses Format so weigehend genutzt wird.\n\n"
+            "Das was JPEG aus macht ist die verlustreiche Kompression. Das bedeutet zwar das "
+            "sehr viel Information verloren geht, womit das Format verständlicherweise "
+            "bei grafikern unbeliebt ist, jedoch ist es für den normalgebrauch Wunderbar da es im "
+            "vergleich kaum Speicher einnimmt.\n"
             "### Abhänigkeiten\n"
+            "- Huffman\n"
             "### Vorteile\n"
+            "- Sehr geringe speicherauslastung\n"
             "### Nachteile\n"
-            "## Links\n",
+            "- Etwas aufwendiges Laden/Speichern"
+            "- Qualität rellativ schlecht"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/JPEG",
             nodeBinary)
         self.NodeGraphCreateSubTree(
             "TGA",
@@ -322,30 +372,124 @@ class GraphContent:
 
         nodeLanguage = self.NodeGraphCreateSubTree(
             "Languages",
-            "", node)
+            "# Programmier Sprachen"
+            "## Info\n"
+            "In der Programmierung gibt es zahlreiche Spracharten, noch viel mehr "
+            "verschiedene Sprachen und noch viel mehr Dialekte. Die auswahlt "
+            "ist enorm. "
+            "### Abhänigkeiten\n"
+            "- Interpretierungs Machine\n"
+            "### Vorteile\n"
+            "- Sprachen helfen und unterstützen dem Menschen mit anderen Menschen "
+            "zu kommunizieren aber auch mit Maschinen\n"
+            "### Nachteile\n"
+            "- Probleme in einer Sprache können missverständnisse aufbringen."
+            "- Fehlende Sprachkunst kann sich stark negativ auf die Qualität auswirken\n"
+            "## Links\n",
+            nodeProgramming)
         nodeMachineLanguage = self.NodeGraphCreateSubTree(
             "Machine Language",
-            "",
+            "# Die Sprache der Machine\n"
+            "## Info\n"
+            "Oft wird Assembly und MAschinensprache verwechselt, aber da gibt "
+            "es einen kleinen unterschied. Maschienensprache bezieht sich auf die "
+            "exakten bytes die in einem Programm oder auch eineer Bibilotek befinden."
+            "Assembly auf der anderen Seite ist nur eine kleine Abstaktion auf "
+            "mehr verständlichere und menschlich lesbare elemente.\n\n"
+            "Assembly bleibt und ist einer der einzigen wege das komplette maximum "
+            "aus einer hardware heraus zu bekommen. Der Grund aber, warum dies trotz den "
+            "Positiven eigenschaften ehr kaum direkt genutzt wird ist, dass das "
+            "Eigentliche Programmieren in Assembly sehr mühsam ist. Da einzelne Befehle "
+            "nur sehr minimale Effekte haben, braucht man eine menge Code um alleine "
+            "kleine Sachen zu verarbeiten.\n\n"
+            "Aus diesem Grund wurden zahlreiche Sprachen entwickelt die Assembly "
+            "abstraktieren und damit eine noch einfachere Umgebung schaffen. "
+            "Hier ist aber darauf zu achten das man sich mit jeder abstaktion "
+            "weiter von dem tatsächlichen Hardwarecode entfernt."
+            "Letzendlich wird jeder Code am Ende in Machinencode ausgeführt."
+            "Im besten Fall ist die Lösung in einer Höheren Sprache besser oder das gleiche "
+            "wie als hätte man diesen selbst in Assembly geschrieben.",
             nodeLanguage)
         self.NodeGraphCreateSubTree(
             "x86",
-            "",
+             "## Info\n"
+            "Ist eine Assembly Sprache die 1978 mit dem Intel 8086 eingefürt worden ist.\n"
+            "Eine große stärke dieser Sprache ist der Fokus auf complexe Befehle."
+            "Die macht die Sprache natürlich deutlich Komplexer kann aber durchaus dies deutlich "
+            "in performance wieder gut machen. In den vergangenen Jahrzehnten "
+             "hat sich diese Sprache als Felsenfester standard durchgesetzt."
+             "Auch wenn einige sich immer wieder aufregen das die Sprache viel zu aufgebläht ist und "
+             "damit viel zu aufwenig und kompliziert wird, ist bis heute keine alternative auf dem Markt."
+             "Zwar ist ARM durchaus in Geräten heufiger genutzt, ernüchtert diese Zahl aber wenn man"
+             "genauer hinsieht und erblickt das ARM fast allen fällen nur im Mobilen Mark steckt "
+             "wo x86 auf allen Destop computern zu finden ist"
+            "### Vorteile\n"
+            "- Selbst Komplexe Befehle, falls unterstützt, können genutzt werden\n."
+            "### Nachteile\n"
+            "- Sehr Komplexe Sprache\n"
+            "- Hardware ist sehr aufwenig herzustellen\n"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/X86\n",
             nodeMachineLanguage)
         self.NodeGraphCreateSubTree(
             "ARM",
-            "",
+            "## Info\n"
+            "ARM wurde erschaffen um ein Konkurent gegen die großeren Namen in der Scene zu sein "
+            "aber nicht um direkt auf einem Level mit ihnen zu Kämpfen, sondern effizeinter und "
+            "günstiger zu sein. Dadurch ist ARM mehr lucktativ für den normal verbraucher und in "
+            "der Industrie für den normalen arbeitsplatz.\n\n"
+            "ARM ist am verbreitesten in portablen Geräten, aber auch kleineren Mediengeräten "
+            "im Haushalt."
+            "### Vorteile\n"
+            "- Geringer Stromverbrauch\n"
+            "- Günstige herstellung der Hardware\n"
+            "### Nachteile\n"
+            "- Inkompartibel mit x86"
+             "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/ARM_architecture_family",
             nodeMachineLanguage)
         self.NodeGraphCreateSubTree(
             "MIPS",
-            "",
+            "# Microprocessor without Interlocked Pipelined Stages\n"
+            "## Info\n"
+            "Ähnlich wie ARM, wurde dies als Ziel der Reduced Instruction set "
+            "computer (RISC) Architektur erschaffen. Da ARM aber mit seiner "
+            "Effizienz besser da steht und x86 deutlich stärker ist, ist MIPS "
+            "nur noch in sehr kleinen und bestimmten Embedded umgebungen zu finden.\n"
+            "Früher wurden einige Geräte ehr mit MIPS ausgestattet als mit ARM, "
+            "da zu dem Zeitpunk ARM nicht so gut war. Seit 2011 hat sich dies "
+            "aber stark geändert und überschattet nun den Markt mit einem besseren Produkt"
+            "### Vorteile\n"
+            "- Mehr leistung unter gewissen Bedinungen\n"
+            "### Nachteile\n"
+            "- Deutlich weniger unterstützung durch Software\n"
+            "## Links\n"
+            "Wikipedia : https://en.wikipedia.org/wiki/MIPS_architecture",
             nodeMachineLanguage)
 
         nodeDataOriented = self.NodeGraphCreateSubTree(
             "Data Oriented",
             "# Daten Orentierte Sprachen"
-            "Diese Art von Sprachen wird oft unterschätzt aber ist ein grundpfeiler für "
-            "Datenverarbeitung aller Art.\n"
-            "",
+            "Diese Art von Sprachen wird oft unterschätzt aber ist ein Grundpfeiler für "
+            "Datenverarbeitung aller Art. In modernerer Zeit wird heufiger über die "
+            "Estetik von Code geredet und kaum noch was für auswirkungen dieser Code "
+            "auf die Hardware hat. Durch diese Entscheidung passiert es sehr heufig "
+            "das Programme oft von Grund auf schlecht entwickelt werden und später "
+            "dies nicht mehr rückgänig gemacht werden kann."
+            "In diesen Fällen fällt das Problem an, das man ein System hat was "
+            "Probleme bereitet, das man aber nicht verbessern kann.\n\n"
+            "Der riesen Vorteil in Daten Orentierte Sprachen liegt also darin, dass man "
+            "sich mehr um die Daten kümmernt und dem Programmierer mehr bewusst ist was "
+            "die Konsequenzen des Codees sind.\n\n"
+            "In vergangener Zeit hatten Computer kaum hardware Resourcen und man musste "
+            "mit viel mühe es überhaupt schaffen sein Teil von dem was man erstellen "
+            "möchte zum laufen zu bringen. Heute ist es aber so, das wir so viele "
+            "Resoucen besitzen, nicht nur Hardware aber auch Software und Netzwerk."
+            "Es ist also heutzutage sehr viel einfacher Code zu schreiben, da man sich "
+            "sicher gehen kann das jeder genügend Arbeitspeicher besitzt,  "
+            "einen Prozessor besitzt der schnell genug ist, eine Festplatte die "
+            "genügend Speicher hat oder sei es, das es Irgend eine Hardware gibt "
+            "die nicht gut genug währe.",
             nodeLanguage)
         self.NodeGraphCreateSubTree(
             "C",
@@ -532,14 +676,22 @@ class GraphContent:
         nodeRelational = self.NodeGraphCreateSubTree(
             "Relational",
             "# Relationale Sprachen\n"
-            "Relationale Sprachen arbeiten, anders als bekannte iterative Sprachen, mit Mengen an Daten.\n"
-            "",
+            "Relationale Sprachen arbeiten, anders als bekannte iterative Sprachen, mit Mengen an Daten.\n",
             nodeLanguage)
         self.NodeGraphCreateSubTree(
             "SQL",
             "# Structured query language\n"
             "SQL ist die standardsprache wenn es um Datenbanken geht.\n"
-            "",
+            "Mit dieser Sprache geht es anders vor als mit anderen Sprachen, es wird komplett anders "
+            "Gedacht und man geht immer nur auf die Mengen ein die man sich auf der Datenbank ließt und schreibt.\n\n"
+            "Da man aber mit einer Menge von Daten hantiert trägt man auch eine große verantwortung."
+            "Es kann sein, das man mit einer falschen aktion einen ganzen Seerver lahm legen kann. "
+            "Egal ob man uasversehen alle Daten löscht oder sich eine riesige Datenbank selbst ausgibt und man Studnen warten muss"
+             "### Vorteile\n"
+            "- Es können unbegenzt viele Fragen an die Daten gestellt werden\n"
+            "### Nachteile\n"
+            "- Schwere übersichtlichkeit\n"
+            "- Limitiert auf Daten\n",
             nodeRelational)
         self.NodeGraphCreateSubTree(
             "Prolog",
@@ -562,7 +714,7 @@ class GraphContent:
             "dass dies eineer der schwersten Themen ist. Die Schwiereigkeit besteht im größeren nur "
             "gegebenen speicher wieder frei zu geben. "
             "## Links\n",
-            node)
+            nodeProgramming)
         self.NodeGraphCreateSubTree(
             "Garbage Collector",
             "# Der Speicherverwalter\n"
@@ -611,7 +763,7 @@ class GraphContent:
             "- Virtueller Speicher",
             nodeMemory)
 
-        nodeAlgoritm = self.NodeGraphCreateSubTree("Algorithms", "", node)
+        nodeAlgoritm = self.NodeGraphCreateSubTree("Algorithms", "", nodeProgramming)
         nodeLZ77 = self.NodeGraphCreateSubTree("LZ77", "", nodeAlgoritm)
         nodeZLIB = self.NodeGraphCreateSubTree(
             "ZLIB",
@@ -669,7 +821,7 @@ class GraphContent:
             "- Muster zu nutzen verändert den Code, acht ist zu geben das es nicht zu stark verzerrt.\n"
             "- Falsche Anwenung der Muster kann ungeahnte Probleme mit sich ziehen.\n"
             "## Links\n",
-            node)
+            nodeProgramming)
         self.NodeGraphCreateSubTree(
             "State Machine",
             "# Zustandsmachine"
@@ -735,7 +887,7 @@ class GraphContent:
             "Stellen zum einfügen von Erweiterungen gedacht werden.\n"
             "Hier wird sehr oft auf die simple **Versions ID** genutzt. <Hier kann schnell unterschieden werden "
             "welche kommunikations version genutzt wird. Entweder kann die version unterstützt werden aber auch abgelehnt werden.",
-            node)
+            nodeProgramming)
         self.NodeGraphCreateSubTree(
             "LDAP",
             "# Lightweight Directory Access Protocol\n"
@@ -814,7 +966,7 @@ class GraphContent:
 
         self.NodeGraphCreateProgrammingTree(nodeMain)
         self.NodeGraphCreateAAAAAAATree(nodeMain)
-        #self.NodeGraphCreateOrganisationTree(nodeMain)
+        self.NodeGraphCreateOrganisationTree(nodeMain)
         ###################################################
 
         ###################################################
