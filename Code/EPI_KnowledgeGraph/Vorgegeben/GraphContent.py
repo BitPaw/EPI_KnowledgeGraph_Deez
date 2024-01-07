@@ -635,10 +635,26 @@ class GraphContent:
         node = Node("No", "PPP")
         self.nodeList.append(node)
         node.connect(parrant)
-    def NodeGraphCreateBBBBBBBBTree(self, parrant: Node):
-        node = Node("No", "JJJ")
+    def NodeGraphCreateOrganisationTree(self, parrant: Node):
+        node = Node("No", "Organisation der Universitäten")
         self.nodeList.append(node)
         node.connect(parrant)
+
+        nodeKurse = self.NodeGraphCreateSubTree("Kurse",
+                                                "Manche Kurse sind Pflicht, während andere Wählbar sind jedoch sind nicht alle kurse anderer Studiengänge wählbar."
+                                                "Eine bessere Konfigurierung des Studiums wie im Master ist Stark wünschenswert (auch von andern Kommilitonen)"
+                                                "Zudem ist die Errechnung der Bearbeitungsdauer/ETC-Punkte teilweise sehr Unstimmig da zum Beispiel eine Bachelorarbeit 12 Punkte gibt und alleine"
+                                                "die Einarbeitung in diese schon solange dauern kann."
+                                                , node)
+
+        nodeBachelorarbeit = self.NodeGraphCreateSubTree("Bachelorarbeit",
+                                                         "Eine Bachelorarbeit wird meist als Ende des Bachelorstudiums gesehen jedoch stimmt dies nicht wirklich.Diese kann normalerweise"
+                                                         " ab Sammlung der hälfte der zum Abschluss benötgen ETC-Punkte beantragt werden (Referenziert von einem Studenten der Uni Siegen)."
+                                                         "Die Bewertung der Bachelorarbeit mit 12 ETC-Punkten ist von einigen Studenten fraglich unter der bedingung dass ein ETC-Punkt 30 Stunden Arbeit entsprechen."
+                                                         "Aus berrichten anderer Studenten auch an anderen Universitäten sind diese 360 Stunden als minimum zum Schreiben und Formulieren der Bachelorarbeit zu verplanen."
+                                                         "Durch diesen Unterschied wird von Studenten oftmals die Bearbeitund der Bachelorarbeit erst Beantragt wenn diese schon Fertig durchgeführt und geschrieben ist um nicht"
+                                                         " den 9 oder 12 Wochen bearbeitungszeitraum zu überschreiten."
+                                                         , node)
 
     def NodeGraphCreateSubTree(self, name: string, description: string, parent: Node):
         node = Node(description, name)
@@ -657,7 +673,7 @@ class GraphContent:
 
         self.NodeGraphCreateProgrammingTree(nodeMain)
         self.NodeGraphCreateAAAAAAATree(nodeMain)
-        self.NodeGraphCreateBBBBBBBBTree(nodeMain)
+        self.NodeGraphCreateOrganisationTree(nodeMain)
         ###################################################
 
         ###################################################
